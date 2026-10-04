@@ -138,7 +138,7 @@
         <tr><td>Ships</td><td>The dealer: buy a hull you have trained for. Your old one goes to the hangar.</td></tr>
         <tr><td>Outfit</td><td>Fit equipment from your locker (<kbd>F</kbd>), unfit it (<kbd>U</kbd>), take modules on- or offline (<kbd>O</kbd>), buy and sell. <kbd>H</kbd> switches half.</td></tr>
         <tr><td>Refinery</td><td>Turn ore into refined goods (<kbd>R</kbd>). Some is lost; the rest is worth more.</td></tr>
-        <tr><td>Workshop</td><td>Manufacture from blueprints (<kbd>P</kbd>). Jobs run while you are away.</td></tr>
+        <tr><td>Workshop</td><td>Manufacture from blueprints (<kbd>P</kbd>), research a recipe (<kbd>E</kbd> <kbd>T</kbd>), invent a locked one (<kbd>I</kbd>). Jobs run while you are away.</td></tr>
         <tr><td>Exchange</td><td>A limit order book: post buy and sell orders other pilots fill.</td></tr>
         <tr><td>Corp</td><td>Your corporation's warehouse at this base.</td></tr>
         <tr><td>Training</td><td>Queue skills (<kbd>T</kbd>), abandon (<kbd>C</kbd>), clear the queue (<kbd>X</kbd>).</td></tr>
@@ -170,7 +170,9 @@
       <ul>
         <li><strong>Mining:</strong> fly into an asteroid field with a mining laser fitted and hold <kbd>G</kbd>. Ore fills your hold. Fields deplete as everyone mines them and recover slowly; Vell Shoals in the Drift is the richest, and the most dangerous to reach.</li>
         <li><strong>Refining</strong> turns ore into refined goods at a refinery, losing a share in the process.</li>
-        <li><strong>Manufacturing</strong> turns goods into other goods from a blueprint, on a timer that keeps running while you are logged out.</li>
+        <li><strong>Manufacturing</strong> turns goods into other goods from a blueprint, on a timer that keeps running while you are logged out. Finished work is handed over at the station it ran at, including while you wait there.</li>
+        <li><strong>Research</strong> improves one recipe for you alone. <kbd>E</kbd> researches materials (each level saves 4% of a batch's inputs) and <kbd>T</kbd> researches time (each level saves 6% of a run's time), up to level 5. Each level is a timed job and costs more than the last; one research or invention job per recipe at a time.</li>
+        <li><strong>Invention</strong> unlocks a locked recipe. The structure kits are locked: a Warden Relay Kit is built only at Compact stations and a Clan Beacon Kit only at Clan stations (Kessler Yard), both with standing 0.3. Press <kbd>I</kbd>: the attempt takes materials, a fee and ten minutes, and can fail. A failure keeps nothing, but makes the next attempt 15 points likelier. The Laboratory Operation skill speeds lab work and improves the odds.</li>
         <li><strong>The exchange</strong> lets you post a price and wait. Goods and credits are held in escrow until the order fills or you cancel it.</li>
       </ul>
 
@@ -384,6 +386,7 @@
         <tr><td><kbd>B</kbd> <kbd>S</kbd></td><td>Buy · sell (trade, exchange, ships, outfit)</td></tr>
         <tr><td><kbd>A</kbd> <kbd>C</kbd></td><td>Accept a job · abandon yours (bar)</td></tr>
         <tr><td><kbd>R</kbd> <kbd>P</kbd></td><td>Refine · start production</td></tr>
+        <tr><td><kbd>E</kbd> <kbd>T</kbd> <kbd>I</kbd></td><td>Workshop: research materials · research time · invent</td></tr>
         <tr><td><kbd>T</kbd> <kbd>C</kbd> <kbd>X</kbd></td><td>Train · abandon · clear queue (training)</td></tr>
         <tr><td><kbd>H</kbd> <kbd>F</kbd> <kbd>U</kbd> <kbd>O</kbd></td><td>Switch half · fit · unfit · online/offline (outfit)</td></tr>
       </table></div>
