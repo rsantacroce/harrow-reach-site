@@ -30,7 +30,8 @@
         take down.
       </p>
       <div class="actions">
-        <a class="button primary" href="manual.html">Read the manual</a>
+        <a class="button primary" href="#download">Download</a>
+        <a class="button" href="manual.html">Read the manual</a>
         <a class="button" href="#screenshots">Screenshots</a>
         <a class="button" href="assets.html">Asset brief</a>
       </div>
@@ -42,10 +43,31 @@
     </figure>
 
     <p class="status" style="margin-top:2rem">
-      <strong>In development.</strong> The game is playable from source but has
-      no public download yet. Everything on this site describes the game as it
-      is today, and the screenshots are from the current build: placeholder
-      art, real systems.
+      <strong>In development.</strong> Everything on this site describes the
+      game as it is today, and the screenshots are from the current build:
+      placeholder art, real systems.
+    </p>
+
+    <h2 id="download">Download</h2>
+    <p>
+      Version <strong>0.2.0</strong>. Unpack the archive and run
+      <code>harrow-client</code>. Single-player runs the real server inside the
+      game; <code>harrow-server</code> is in the same archive for playing
+      together. Keep the folder together: your pilot is saved in it.
+    </p>
+    <div class="downloads">
+      <a class="button primary" href="https://github.com/rsantacroce/harrow-reach-site/releases/download/v0.2.0/harrow-reach-v0.2.0-macos-arm64.tar.gz">macOS, Apple silicon</a>
+      <a class="button primary" href="https://github.com/rsantacroce/harrow-reach-site/releases/download/v0.2.0/harrow-reach-v0.2.0-macos-x86_64.tar.gz">macOS, Intel</a>
+      <a class="button primary" href="https://github.com/rsantacroce/harrow-reach-site/releases/download/v0.2.0/harrow-reach-v0.2.0-windows-x86_64.zip">Windows</a>
+      <a class="button primary" href="https://github.com/rsantacroce/harrow-reach-site/releases/download/v0.2.0/harrow-reach-v0.2.0-linux-x86_64.tar.gz">Linux</a>
+    </div>
+    <p class="muted" style="margin-top:1rem">
+      The builds are not signed. On <strong>macOS</strong>, right-click
+      <code>harrow-client</code> and choose Open the first time (or run
+      <code>xattr -dr com.apple.quarantine .</code> in the folder). On
+      <strong>Windows</strong>, SmartScreen may ask: choose More info, then Run
+      anyway. <strong>Linux</strong> needs a Vulkan driver. All releases are on
+      the <a href="https://github.com/rsantacroce/harrow-reach-site/releases">releases page</a>.
     </p>
 
     <h2>What is in it</h2>

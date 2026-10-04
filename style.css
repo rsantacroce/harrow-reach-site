@@ -101,6 +101,8 @@ figcaption { color: var(--muted); font-size: 0.9rem; margin-top: 0.5rem; }
 .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.4rem; }
 .gallery a:hover { text-decoration: none; }
 
+.downloads { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+
 .status { border-left: 3px solid var(--amber); padding: 0.4rem 1rem; background: var(--panel); border-radius: 0 6px 6px 0; }
 
 /* --- the manual ---------------------------------------------------------- */
