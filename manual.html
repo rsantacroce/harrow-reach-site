@@ -120,8 +120,13 @@
       </p>
       <h3>Jump gates and the navmap</h3>
       <p>
-        Inside a gate's range the HUD offers <kbd>J</kbd> to jump. You arrive
-        beside the gate that leads back. <kbd>M</kbd> opens the navmap: arrows
+        Inside a gate's range the HUD offers <kbd>J</kbd> to jump. The jump
+        drive <strong>spools for four seconds</strong> first, counting down on
+        the HUD's DRIVE line, and only then do you go. A hit, a disruptor, or
+        flying out of the gate's range stops it; <kbd>J</kbd> again cancels.
+        A gate is where you are easiest to catch, so a camped gate is worth
+        clearing before you sit on it. You arrive beside the gate that leads
+        back. <kbd>M</kbd> opens the navmap: arrows
         choose a system, <kbd>→</kbd> sets a course, <kbd>←</kbd> clears it. With a
         course set, the HUD shows the next gate to fly to.
       </p>
@@ -134,7 +139,7 @@
       <div class="table-wrap"><table>
         <tr><th>Screen</th><th>What it is for</th></tr>
         <tr><td>Trade</td><td>Buy (<kbd>B</kbd>) and sell (<kbd>S</kbd>) commodities. Arrows move the cursor and size the order.</td></tr>
-        <tr><td>Bar</td><td>Jobs and the campaign. <kbd>A</kbd> accepts, <kbd>C</kbd> abandons yours. Your standings are listed here.</td></tr>
+        <tr><td>Bar</td><td>Jobs and the campaign. <kbd>A</kbd> accepts (up to three), <kbd>C</kbd> abandons the tracked one, <kbd>N</kbd> tracks the next. Your standings are listed here.</td></tr>
         <tr><td>Ships</td><td>The dealer: buy a hull you have trained for. Your old one goes to the hangar.</td></tr>
         <tr><td>Outfit</td><td>Fit equipment from your locker (<kbd>F</kbd>), unfit it (<kbd>U</kbd>), take modules on- or offline (<kbd>O</kbd>), buy and sell. <kbd>H</kbd> switches half.</td></tr>
         <tr><td>Refinery</td><td>Turn ore into refined goods (<kbd>R</kbd>). Some is lost; the rest is worth more.</td></tr>
@@ -195,6 +200,13 @@
         locked target, leading it, from whichever side of the hull can see it.
         Lock with <kbd>T</kbd> and hold fire: with nothing locked, turrets stay
         silent. NPC turrets need no trigger, so a convoy's haulers shoot back.
+      </p>
+      <p>
+        <strong>NPCs pick their fights.</strong> They go for whoever has hurt
+        them or a friend nearby lately, pile onto what their packmates are
+        already shooting, and finish off the wounded. Shooting at one from
+        outside its range still brings it after you. A grudge fades within
+        about fifteen seconds once the shooting stops.
       </p>
       <h3>Dying</h3>
       <p>
@@ -299,9 +311,13 @@
 
       <h2 id="jobs">Jobs</h2>
       <p>
-        Every bar has a board. Take a job with <kbd>A</kbd>; you can hold one at
-        a time. Once you have one, the HUD shows a <code>GOTO</code> line and an
-        amber marker in space.
+        Every bar has a board. Take a job with <kbd>A</kbd>; you can hold
+        <strong>three at once</strong>, and they all progress together: a kill
+        counts for every bounty it satisfies. The newest is the one
+        <em>tracked</em>: the HUD shows a <code>GOTO</code> line and an amber
+        marker for it, and <kbd>C</kbd> abandons it. <kbd>N</kbd> in the bar
+        tracks the next. One escort at a time, and a job you have taken leaves
+        the board until you finish or abandon it.
       </p>
       <ul>
         <li><strong>Bounties</strong>: destroy ships of a faction, anywhere. Paid when you next dock.</li>
@@ -432,7 +448,7 @@
         <tr><td><kbd>G</kbd></td><td>Secondary: disruptor or mining laser</td></tr>
         <tr><td><kbd>T</kbd> <kbd>Y</kbd></td><td>Lock target ahead · clear</td></tr>
         <tr><td><kbd>F1</kbd>–<kbd>F4</kbd></td><td>Active modules on/off</td></tr>
-        <tr><td><kbd>X</kbd> · <kbd>J</kbd> · <kbd>L</kbd></td><td>Dock · jump · ride a trade lane</td></tr>
+        <tr><td><kbd>X</kbd> · <kbd>J</kbd> · <kbd>L</kbd></td><td>Dock · spool the jump drive (again to cancel) · ride a trade lane</td></tr>
         <tr><td><kbd>K</kbd> · <kbd>Shift</kbd>+<kbd>K</kbd></td><td>Deploy or service a structure · take yours down</td></tr>
         <tr><td><kbd>M</kbd></td><td>Navmap (arrows choose, <kbd>→</kbd> sets course, <kbd>←</kbd> clears)</td></tr>
         <tr><td><kbd>Enter</kbd></td><td>Chat (<kbd>Esc</kbd> cancels)</td></tr>
@@ -441,7 +457,7 @@
         <tr><td><kbd>Tab</kbd> · <kbd>U</kbd></td><td>Next screen · undock</td></tr>
         <tr><td>Arrows</td><td>Move the cursor and size orders, on every screen</td></tr>
         <tr><td><kbd>B</kbd> <kbd>S</kbd></td><td>Buy · sell (trade, exchange, ships, outfit)</td></tr>
-        <tr><td><kbd>A</kbd> <kbd>C</kbd></td><td>Accept a job · abandon yours (bar)</td></tr>
+        <tr><td><kbd>A</kbd> <kbd>C</kbd> <kbd>N</kbd></td><td>Accept a job · abandon the tracked one · track the next (bar)</td></tr>
         <tr><td><kbd>R</kbd> <kbd>P</kbd></td><td>Refine · start production</td></tr>
         <tr><td><kbd>E</kbd> <kbd>T</kbd> <kbd>I</kbd></td><td>Workshop: research materials · research time · invent</td></tr>
         <tr><td><kbd>T</kbd> <kbd>C</kbd> <kbd>X</kbd></td><td>Train · abandon · clear queue (training)</td></tr>
