@@ -546,12 +546,14 @@
             <tr><td><span class="id">kestrel</span></td><td class="num">11 m</td><td class="num">18–21 m</td><td class="num">12–15 m</td></tr>
             <tr><td><span class="id">bulwark</span></td><td class="num">15 m</td><td class="num">24–28 m</td><td class="num">16–20 m</td></tr>
             <tr><td><span class="id">drone_hauler</span></td><td class="num">24 m</td><td class="num">40–46 m</td><td class="num">20–26 m</td></tr>
+            <tr><td><span class="id">carrack</span></td><td class="num">60 m</td><td class="num">105–115 m</td><td class="num">60–80 m</td></tr>
           </tbody>
         </table>
       </div>
-      <p><code>ShipClass.visual_scale</code> exists in the data model as a multiplier and is
-        currently <strong>unused</strong> — ships render as primitive assemblies about 5&nbsp;m
-        long. Author to the table above and drop it. A model whose true size is a data-file
+      <p><code>ShipClass.visual_scale</code> is a multiplier on the client's placeholder model
+        (a primitive assembly about 4&nbsp;m long), sent at login since M29 so a cruiser reads as
+        one: <span class="id">carrack</span> is 30, <span class="id">drone_hauler</span> 2.2, the
+        fighters 1. Author to the table above and drop it. A model whose true size is a data-file
         multiplier is a model nobody can inspect.</p>
 
       <h3>Polygon budgets</h3>
@@ -757,8 +759,8 @@
         section: an obvious spine with modular container bays clamped along it, a small crew
         module forward, four engines aft. The name is <em>Drone-class</em>: it should look
         semi-automated, few windows, a lot of external machinery. Two turret rings, dorsal and
-        ventral, must be visibly rotatable hardware even though turrets currently fire along the
-        hull's nose.</p>
+        ventral, must be visibly rotatable hardware: since M29 they really do turn, leading the
+        locked target within the hemisphere they face.</p>
       <div class="scroll">
         <table>
           <thead><tr><th>Slot</th><th>Kind</th><th>Size</th><th>Fitted</th><th>Offset (x, y, z)</th></tr></thead>
@@ -781,6 +783,40 @@
         for days and a processor that runs out long before it, so a fully rigged
         freighter has to choose. Model them as visible external hardpoints along the
         spine, big enough that a fitted module could plausibly be bolted there.</p>
+
+      <h3><span class="id">carrack</span> Carrack-class Cruiser <span class="p p0">P0</span></h3>
+      <dl class="specs">
+        <div class="spec"><dt>Class</dt><dd>Capital</dd></div>
+        <div class="spec"><dt>Top speed</dt><dd>42 m/s</dd></div>
+        <div class="spec"><dt>Hold</dt><dd>160 m³</dd></div>
+        <div class="spec"><dt>Hit radius</dt><dd>60 m</dd></div>
+      </dl>
+      <p>The capital: 32&nbsp;000 hull, 9&nbsp;000 shield, six heavy turrets that aim themselves.
+        Player-flyable (Capital Ships skill, 6&nbsp;000&nbsp;000&nbsp;cr at Halden), and flown by the
+        Wardens in a Drift they hold and the Clans in a Gap they hold. Docks only at stations.
+        About 110&nbsp;m long, a warship rather than a freighter: a long armoured keel, a raised
+        command tower aft of centre, a broad engine block of six bells. Its silhouette is its
+        <strong>six turret barbettes</strong> (dorsal fore and aft, ventral fore and aft, one on
+        each flank), each a heavy twin-barrelled mount on a ring that must read as rotating.
+        Compact livery is navy and white with gold trim; the Clan one is the same hull stripped,
+        rust-red and patched.</p>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>Slot</th><th>Kind</th><th>Size</th><th>Fitted</th><th>Offset (x, y, z) ×30</th></tr></thead>
+          <tbody>
+            <tr><td>turret_df</td><td>Turret</td><td class="num">2</td><td><span class="id">turret_2</span></td><td class="num">(0.0, 9.0, −18.0)</td></tr>
+            <tr><td>turret_da</td><td>Turret</td><td class="num">2</td><td><span class="id">turret_2</span></td><td class="num">(0.0, 9.0, 14.0)</td></tr>
+            <tr><td>turret_vf</td><td>Turret</td><td class="num">2</td><td><span class="id">turret_2</span></td><td class="num">(0.0, −9.0, −18.0)</td></tr>
+            <tr><td>turret_va</td><td>Turret</td><td class="num">2</td><td><span class="id">turret_2</span></td><td class="num">(0.0, −9.0, 14.0)</td></tr>
+            <tr><td>turret_p</td><td>Turret</td><td class="num">2</td><td><span class="id">turret_2</span></td><td class="num">(−14.0, 0.0, 0.0)</td></tr>
+            <tr><td>turret_s</td><td>Turret</td><td class="num">2</td><td><span class="id">turret_2</span></td><td class="num">(14.0, 0.0, 0.0)</td></tr>
+            <tr><td>shield</td><td>Shield</td><td class="num">2</td><td>—</td><td class="num">(0.0, 0.0, 0.0)</td></tr>
+            <tr><td>rig_a</td><td>Rig</td><td class="num">2</td><td>—</td><td class="num">(0.0, 4.0, 4.0)</td></tr>
+            <tr><td>rig_b</td><td>Rig</td><td class="num">2</td><td>—</td><td class="num">(0.0, −4.0, 4.0)</td></tr>
+            <tr><td>engine</td><td>Thruster</td><td class="num">2</td><td>—</td><td class="num">(0.0, 0.0, 30.0)</td></tr>
+          </tbody>
+        </table>
+      </div>
 
       <h4>Per hull, also needed <span class="p p1">P1</span></h4>
       <ul>
@@ -963,6 +999,7 @@
             <tr><td><span class="id">pulse_2</span></td><td>Pulse Laser Mk II</td><td>Energy</td><td class="num">680 m/s</td><td class="wrap">As Mk I but longer and hotter — visibly the better gun</td></tr>
             <tr><td><span class="id">cannon_1</span></td><td>Tungsten Cannon</td><td>Kinetic</td><td class="num">420 m/s</td><td class="wrap">A slug: small, bright, hard-edged, smoke trail. Slow enough to lead badly</td></tr>
             <tr><td><span class="id">turret_1</span></td><td>Defence Turret</td><td>Kinetic</td><td class="num">500 m/s</td><td class="wrap">Short amber bursts, unmistakably defensive</td></tr>
+            <tr><td><span class="id">turret_2</span></td><td>Heavy Turret</td><td>Kinetic</td><td class="num">450 m/s</td><td class="wrap">A heavy twin slug, orange-white, with a visible muzzle flash on the barbette</td></tr>
             <tr><td><span class="id">disruptor_1</span></td><td>Cruise Disruptor</td><td>EMP</td><td class="num">380 m/s</td><td class="wrap">A slow violet pulse that crackles. Non-lethal-looking, because it is not about damage — it stops a freighter running</td></tr>
             <tr><td><span class="id">miner_1</span></td><td>Mining Laser Mk I</td><td>Energy</td><td class="num">900 m/s</td><td class="wrap">A <em>continuous</em> orange beam with heat shimmer, not a bolt. The only weapon that reads as a tool</td></tr>
             <tr><td><span class="id">missile_1</span></td><td>Hammer Missile</td><td>Explosive</td><td class="num">260 m/s</td><td class="wrap">A visible physical object with a motor: exhaust plume, smoke trail, slow enough to watch arrive. It flies straight — there is no guidance in this game — so its threat is what it does on impact, not on the way</td></tr>
@@ -1166,7 +1203,7 @@
       </div>
 
       <h3>Weapons, impacts and interface <span class="p p0">P0</span> <span class="p p1">P1</span></h3>
-      <p>One fire sound each for the five projectile weapons plus a <strong>looping</strong>
+      <p>One fire sound each for the six projectile weapons plus a <strong>looping</strong>
         mining beam. Lasers short and electric; the cannon a heavy percussive thump; the disruptor
         a wet electrical warble that sounds obviously unlike a gun.</p>
       <p>Impacts: <span class="id">hit_shield</span> a resonant absorbed thud,
@@ -1226,6 +1263,7 @@
           <li><label><input type="checkbox"><span>ships/kestrel.glb + LOD1 + 4 liveries</span></label></li>
           <li><label><input type="checkbox"><span>ships/bulwark.glb + LOD1 + 4 liveries</span></label></li>
           <li><label><input type="checkbox"><span>ships/drone_hauler.glb + LOD1 + 4 liveries</span></label></li>
+          <li><label><input type="checkbox"><span>ships/carrack.glb + LOD1 + Compact and Clan liveries</span></label></li>
           <li><label><input type="checkbox"><span>stations/halden.glb</span></label></li>
           <li><label><input type="checkbox"><span>stations/kessler_yard.glb</span></label></li>
           <li><label><input type="checkbox"><span>planets/harrow_albedo.png 8192×4096 + normal + clouds</span></label></li>
