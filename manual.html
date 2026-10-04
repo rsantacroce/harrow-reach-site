@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pilot's Manual · Harrow Reach</title>
+  <meta name="description" content="How to fly, trade, fight, fit a ship, take jobs, follow the campaign and hold space in Harrow Reach.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%276%27 fill=%27%2307090d%27/%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%279%27 fill=%27none%27 stroke=%27%23f2b34d%27 stroke-width=%273%27/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="site">
+    <span class="brand">HARROW REACH</span>
+    <a href="./">Home</a>
+    <a href="manual.html" class="here">Manual</a>
+    <a href="assets.html">Assets</a>
+  </nav>
+
+  <main class="manual">
+    <aside class="toc">
+      <ol>
+        <li><a href="#start">Getting started</a></li>
+        <li><a href="#hud">Reading the HUD</a></li>
+        <li><a href="#flight">Flying</a></li>
+        <li><a href="#travel">Getting around</a></li>
+        <li><a href="#stations">Stations</a></li>
+        <li><a href="#trade">Trade</a></li>
+        <li><a href="#industry">Mining and industry</a></li>
+        <li><a href="#combat">Combat</a></li>
+        <li><a href="#fitting">Fitting and modules</a></li>
+        <li><a href="#skills">Skills and ships</a></li>
+        <li><a href="#factions">Factions and standing</a></li>
+        <li><a href="#jobs">Jobs</a></li>
+        <li><a href="#campaign">The campaign</a></li>
+        <li><a href="#world">A world that moves</a></li>
+        <li><a href="#structures">Structures</a></li>
+        <li><a href="#social">Corporations and fleets</a></li>
+        <li><a href="#systems">The systems</a></li>
+        <li><a href="#multiplayer">Playing together</a></li>
+        <li><a href="#controls">All controls</a></li>
+      </ol>
+    </aside>
+
+    <article>
+      <h1>Pilot's Manual</h1>
+      <p class="muted">Everything here describes the current build. Where a number is given, it is the game's own.</p>
+
+      <h2 id="start">Getting started</h2>
+      <p>
+        You start in a <strong>Kestrel</strong>, a light fighter, with 2,000
+        credits, in Harrow Reach, the one system where the police answer.
+        Halden Station is 1.8 km straight ahead.
+      </p>
+      <ol>
+        <li>Steer with the mouse. The ship turns toward the crosshair.</li>
+        <li>Press <kbd>1</kbd> for full throttle, or hold <kbd>W</kbd>. <kbd>`</kbd> cuts it to zero.</li>
+        <li>When the HUD says you are inside Halden's docking range, press <kbd>X</kbd>.</li>
+        <li>Docked, <kbd>Tab</kbd> walks through the station's screens. <kbd>U</kbd> undocks.</li>
+      </ol>
+      <div class="note">
+        <strong>First hour.</strong> Buy luxury goods at Halden and fly them to
+        the planet Harrow: it grows food and imports everything made in orbit.
+        Or open the bar and take the first job. The campaign starts there.
+      </div>
+
+      <h2 id="hud">Reading the HUD</h2>
+      <figure>
+        <img src="screenshots/01-halden.jpg" alt="The flight HUD near Halden Station with a bounty job." width="1600" height="982" loading="lazy">
+        <figcaption>Flight panel bottom left, contacts top right, netcode top left.</figcaption>
+      </figure>
+      <ul>
+        <li><strong>Bottom left:</strong> your ship. Speed, throttle, afterburner, shield, hull, weapon capacitor, drive state, position, credits and hold, then your job, where to go for it, and any active modules.</li>
+        <li><strong>Top right:</strong> contacts, nearest first: name, kind (<code>pilot</code>, <code>police</code>, <code>PIRATE</code>, <code>hauler</code>, <code>struct</code>), distance, shield and hull. Tags such as <code>BOOST</code> or <code>OVERCHARGE</code> mean that ship has a module running.</li>
+        <li><strong>Top left:</strong> link and netcode figures. Corrections should stay near zero.</li>
+        <li><strong>Above the controls:</strong> what you can do right now: dock, jump, ride a lane, or how far the nearest base is.</li>
+        <li><strong>In space:</strong> the green circle is your crosshair; a red ring is where to aim at a locked target; an amber <code>[JOB x km]</code> tag points at your job, and sits at the screen edge when it is behind you.</li>
+      </ul>
+
+      <h2 id="flight">Flying</h2>
+      <p>
+        Flight is arcade-Newtonian. With engines on, a flight assist steers
+        your velocity toward where the nose points. Press <kbd>Z</kbd> for
+        <strong>engine kill</strong>: thrust and assist off, and you drift on your
+        vector while the nose turns freely. That is the move to learn: kill,
+        turn, shoot, re-engage.
+      </p>
+      <ul>
+        <li><kbd>W</kbd>/<kbd>S</kbd> throttle; <kbd>`</kbd> zero; <kbd>1</kbd> full.</li>
+        <li><kbd>A</kbd>/<kbd>D</kbd> strafe; <kbd>R</kbd>/<kbd>F</kbd> up/down; <kbd>Q</kbd>/<kbd>E</kbd> roll.</li>
+        <li>Hold <kbd>Shift</kbd> for afterburner, from a tank that refills: 2.6× top speed on a Kestrel, 2.3× on a Bulwark, 1.7× on a hauler.</li>
+        <li>Hold the right mouse button to free the cursor without steering.</li>
+      </ul>
+      <h3>Cruise</h3>
+      <p>
+        <kbd>Tab</kbd> spools the cruise engines for five seconds, then carries
+        you at 320 m/s with sluggish turning. Firing cancels it. A
+        <strong>cruise disruptor</strong> hit stops it and blocks it for a few
+        seconds, which is how a pirate keeps a freighter from simply leaving.
+      </p>
+
+      <h2 id="travel">Getting around</h2>
+      <h3>Trade lanes</h3>
+      <figure>
+        <img src="screenshots/03-lane.jpg" alt="Lined up at a trade lane ring." width="1600" height="982" loading="lazy">
+        <figcaption>At a lane ring. The prompt says where the lane goes.</figcaption>
+      </figure>
+      <p>
+        Amber rings mark trade lanes. Fly within 300 m of an end ring and press
+        <kbd>L</kbd>: the lane carries you to the far ring at 900 m/s, and the
+        stick does nothing until you arrive. Either end is a way in.
+      </p>
+      <p>
+        <strong>A lane is somewhere you can be pulled out of.</strong> Anything
+        hostile to you within a kilometre of the line drops you out where you
+        are, and your drive is locked for five seconds. The Halden-to-Harrow lane
+        runs past a raider camp on purpose.
+      </p>
+      <h3>Jump gates and the navmap</h3>
+      <p>
+        Inside a gate's range the HUD offers <kbd>J</kbd> to jump. You arrive
+        beside the gate that leads back. <kbd>M</kbd> opens the navmap: arrows
+        choose a system, <kbd>→</kbd> sets a course, <kbd>←</kbd> clears it. With a
+        course set, the HUD shows the next gate to fly to.
+      </p>
+
+      <h2 id="stations">Stations</h2>
+      <p>
+        Dock with <kbd>X</kbd> inside a base's docking range; undock with
+        <kbd>U</kbd>. Docked, <kbd>Tab</kbd> cycles the screens the base has:
+      </p>
+      <div class="table-wrap"><table>
+        <tr><th>Screen</th><th>What it is for</th></tr>
+        <tr><td>Trade</td><td>Buy (<kbd>B</kbd>) and sell (<kbd>S</kbd>) commodities. Arrows move the cursor and size the order.</td></tr>
+        <tr><td>Bar</td><td>Jobs and the campaign. <kbd>A</kbd> accepts, <kbd>C</kbd> abandons yours. Your standings are listed here.</td></tr>
+        <tr><td>Ships</td><td>The dealer: buy a hull you have trained for. Your old one goes to the hangar.</td></tr>
+        <tr><td>Outfit</td><td>Fit equipment from your locker (<kbd>F</kbd>), unfit it (<kbd>U</kbd>), take modules on- or offline (<kbd>O</kbd>), buy and sell. <kbd>H</kbd> switches half.</td></tr>
+        <tr><td>Refinery</td><td>Turn ore into refined goods (<kbd>R</kbd>). Some is lost; the rest is worth more.</td></tr>
+        <tr><td>Workshop</td><td>Manufacture from blueprints (<kbd>P</kbd>). Jobs run while you are away.</td></tr>
+        <tr><td>Exchange</td><td>A limit order book: post buy and sell orders other pilots fill.</td></tr>
+        <tr><td>Corp</td><td>Your corporation's warehouse at this base.</td></tr>
+        <tr><td>Training</td><td>Queue skills (<kbd>T</kbd>), abandon (<kbd>C</kbd>), clear the queue (<kbd>X</kbd>).</td></tr>
+      </table></div>
+      <p>
+        Some stations refuse pilots their owners dislike. Kessler Yard and
+        Cinder Hold, the Cinder Clans' bases, turn away anyone who has been
+        hunting the Clans.
+      </p>
+
+      <h2 id="trade">Trade</h2>
+      <figure>
+        <img src="screenshots/04-docked.jpg" alt="The trade screen at Halden Station." width="1600" height="982" loading="lazy">
+      </figure>
+      <p>
+        Prices come from <strong>stock</strong>. A station sitting on a surplus
+        sells cheap; one that is short pays well. Every unit you buy raises the
+        price of the next, so a round trip at one station always loses money,
+        and a good route is two stations whose stock disagrees. Stations
+        produce and consume over time, and NPC haulers work the routes too, so
+        the gaps open and close.
+      </p>
+      <p>
+        Hold space is in cubic metres, and goods differ in volume: a light,
+        valuable cargo suits a fighter, bulk suits a freighter.
+      </p>
+
+      <h2 id="industry">Mining and industry</h2>
+      <ul>
+        <li><strong>Mining:</strong> fly into an asteroid field with a mining laser fitted and hold <kbd>G</kbd>. Ore fills your hold. Fields deplete as everyone mines them and recover slowly; Vell Shoals in the Drift is the richest, and the most dangerous to reach.</li>
+        <li><strong>Refining</strong> turns ore into refined goods at a refinery, losing a share in the process.</li>
+        <li><strong>Manufacturing</strong> turns goods into other goods from a blueprint, on a timer that keeps running while you are logged out.</li>
+        <li><strong>The exchange</strong> lets you post a price and wait. Goods and credits are held in escrow until the order fills or you cancel it.</li>
+      </ul>
+
+      <h2 id="combat">Combat</h2>
+      <p>
+        Every weapon fires a projectile, so you lead your target. Press
+        <kbd>T</kbd> to lock the contact nearest your crosshair (<kbd>Y</kbd>
+        clears it); a red ring then shows where to aim so your shots and the
+        target arrive together. <kbd>Space</kbd> or the left mouse button fires;
+        <kbd>G</kbd> fires your secondary, a cruise disruptor on the Kestrel.
+      </p>
+      <p>
+        Shields absorb damage first and regenerate after a short delay; hull
+        does not regenerate on its own. Different damage types meet different
+        resistances.
+      </p>
+      <h3>Dying</h3>
+      <p>
+        You wake up docked at the nearest base with your hull repaired. What
+        else happens depends on where you died:
+      </p>
+      <div class="table-wrap"><table>
+        <tr><th>Security</th><th>What you lose</th></tr>
+        <tr><td>High</td><td>Nothing. Your cargo is still aboard.</td></tr>
+        <tr><td>Low</td><td>Everything in your hold, dropped where you died for anyone to collect.</td></tr>
+        <tr><td>Null</td><td>Everything in your hold. An insurance payout softens it.</td></tr>
+      </table></div>
+      <p>Destroyed ships drop cargo containers. Fly over one to scoop it.</p>
+
+      <h2 id="fitting">Fitting and modules</h2>
+      <p>
+        Every hull has mounts of different kinds and sizes, a <strong>power
+        grid</strong> and a <strong>CPU</strong>. Fighters run out of grid
+        first and freighters run out of CPU first, which is what makes them fit
+        differently. Equipment is bought into your <strong>locker</strong> at a
+        station, then fitted from the Outfit screen. Taking a module offline
+        (<kbd>O</kbd>) frees its grid and CPU, which is how an over-budget
+        fitting can still be flown.
+      </p>
+      <h3>Active modules</h3>
+      <p>
+        Some modules are switched on in flight with <kbd>F1</kbd>–<kbd>F4</kbd>:
+      </p>
+      <div class="table-wrap"><table>
+        <tr><th>Module</th><th>While running</th></tr>
+        <tr><td>Shield Booster</td><td>Shield back at 8% a second, even during the regeneration delay.</td></tr>
+        <tr><td>Hull Repair Unit</td><td>Hull back at 2.5% a second: the only hull you get back outside a station.</td></tr>
+        <tr><td>Weapon Overcharger</td><td>+30% damage, slower capacitor recharge.</td></tr>
+      </table></div>
+      <p>
+        They draw from the same capacitor your guns fire from, and shut down
+        when it is empty. They heat up while running, faster when you are taking
+        hull damage, and at full heat they <strong>burn out</strong>: the module
+        stops working until a station's repair bay fixes it, which happens
+        automatically when you dock and costs 15% of its price. Enemy NPCs carry
+        and run the same modules.
+      </p>
+
+      <h2 id="skills">Skills and ships</h2>
+      <p>
+        Skills train on the wall clock, whether you are logged in or not.
+        Queue them on the Training screen, or type <code>/train &lt;skill&gt;</code>.
+        Flight skills (speed, handling, afterburner) take effect the next time
+        you launch, not mid-flight.
+      </p>
+      <p>
+        Three hulls are for sale: the <strong>Kestrel</strong> light fighter you
+        start in, the heavier <strong>Bulwark</strong>, and the
+        <strong>Drone-class Hauler</strong>. Bigger hulls need training first.
+        Buying a hull keeps your old one in the hangar of that station.
+      </p>
+
+      <h2 id="factions">Factions and standing</h2>
+      <div class="table-wrap"><table>
+        <tr><th>Faction</th><th></th></tr>
+        <tr><td>The Reach Compact</td><td>The house that governs Harrow Reach.</td></tr>
+        <tr><td>Compact Wardens</td><td>Its police. They leave you alone unless you give them reason.</td></tr>
+        <tr><td>Traders Guild</td><td>Runs the haulers, the Drift Relay, and most of the honest work.</td></tr>
+        <tr><td>The Cinder Clans</td><td>The raiders of the Gap and the Drift. They shoot at almost anyone.</td></tr>
+      </table></div>
+      <p>
+        Standing is a web, not a list. Help the Wardens and the Clans think
+        less of you, because the two hate each other. Killing a faction's ships
+        lowers your standing with it. Standing decides who shoots at you, which
+        stations let you dock, which jobs are offered, and your prices.
+      </p>
+
+      <h2 id="jobs">Jobs</h2>
+      <p>
+        Every bar has a board. Take a job with <kbd>A</kbd>; you can hold one at
+        a time. Once you have one, the HUD shows a <code>GOTO</code> line and an
+        amber marker in space.
+      </p>
+      <ul>
+        <li><strong>Bounties</strong>: destroy ships of a faction, anywhere. Paid when you next dock.</li>
+        <li><strong>Deliveries</strong>: buy the cargo yourself and deliver it to a named base. Paid when you dock there with it.</li>
+        <li><strong>Supply runs</strong>: a station that is short of something posts a premium for it.</li>
+        <li><strong>Escorts</strong>: a convoy forms when you launch near the station you took the job at. It waits if you fall more than 1.5 km behind, runs from pirates, and partway along a raid comes for it. Lose it and the job fails. If its destination is in another system, it waits at the gate and jumps when you do. Escorts are paid the moment the convoy arrives.</li>
+      </ul>
+      <figure>
+        <img src="screenshots/02-convoy.jpg" alt="Escorting a convoy out of Halden." width="1600" height="982" loading="lazy">
+      </figure>
+
+      <h2 id="campaign">The campaign</h2>
+      <p>
+        Story jobs appear at the top of the board, one step at a time. The
+        Wardens open it; Ilse Varga, the Traders Guild's dispatcher, takes it
+        through the gate and into the Drift.
+      </p>
+      <p>
+        At step six the story <strong>branches</strong>, and the bar says so.
+        Captain Imre Hask of the Wardens wants pressure on the Clans' home;
+        Varga wants to open trade with it. Finishing either closes the other for
+        good, and each path has its own steps after that, including, on Varga's
+        side, a job from the Clans themselves. Each path ends at step nine, and
+        each ending changes the shared world (below).
+      </p>
+
+      <h2 id="world">A world that moves</h2>
+      <p>
+        Kessler Gap and Vell Drift are <strong>contested</strong>. Each has a
+        balance every pilot pulls on, and the navmap says where it stands:
+      </p>
+      <div class="table-wrap"><table>
+        <tr><th>System</th><th>One way</th><th>The other way</th></tr>
+        <tr><td>Vell Drift</td><td><strong>Held by the Compact</strong>: Warden pickets patrol the Drift.</td><td><strong>Open to Clan trade</strong>: the Clan war-band stands down.</td></tr>
+        <tr><td>Kessler Gap</td><td><strong>Secured by the Guild</strong>: a Guild Escort Wing rides the lane and the extra raiders leave.</td><td><strong>Raided by the Clans</strong>: a Clan Toll Wing camps the gate.</td></tr>
+      </table></div>
+      <p>
+        Endings push hard. Repeatable jobs push a little. So do kills of the
+        factions involved and Guild freight arriving, which means ordinary play
+        moves it too. Left alone, a balance slowly drifts back to contested, so
+        a system has to be held, not just won. When a patrol moves in or
+        withdraws, everyone on the server is told.
+      </p>
+
+      <h2 id="structures">Structures</h2>
+      <figure>
+        <img src="screenshots/06-drift.jpg" alt="Sheltering under a Warden Relay in Vell Drift." width="1600" height="982" loading="lazy">
+        <figcaption>The Warden Relay ahead covers this pilot: the HUD says so.</figcaption>
+      </figure>
+      <p>
+        In null security you can raise a structure from a kit carried in your
+        hold. <strong>Warden Relay</strong> kits are sold at Drift Relay;
+        <strong>Clan Beacon</strong> kits at Cinder Hold. You need to be on decent
+        terms with the faction whose colours it will fly.
+      </p>
+      <ul>
+        <li><kbd>K</kbd> raises it 400 m ahead: clear of stations and gates by 3 km, 4 km from other structures, six to a system at most.</li>
+        <li>While it stands it <strong>pushes the system's balance</strong> every hour. One slows the drift back, two hold a balance, more push it.</li>
+        <li>It <strong>covers friends</strong> within 2 km: shields and hull back for pilots its faction likes and for its faction's ships.</li>
+        <li>It needs <strong>upkeep</strong>: oxygen for a relay, food for a beacon, about 20 units a day. It starts with two days and holds a week. Unfed, it does nothing and its hull decays until it is gone. You are warned when it runs low.</li>
+        <li><kbd>K</kbd> beside your own structure feeds it from your hold and repairs it for credits. <kbd>Shift</kbd>+<kbd>K</kbd> takes it down and gives you the kit back.</li>
+        <li>Its faction's enemies attack it on sight. You are told when it is under fire, and the whole server hears when one goes up or comes down.</li>
+        <li>A structure built by a corporation member belongs to the corporation: any member can feed it, and an officer can take it down.</li>
+      </ul>
+
+      <h2 id="social">Corporations and fleets</h2>
+      <p>Both are managed from chat (<kbd>Enter</kbd>):</p>
+      <div class="table-wrap"><table>
+        <tr><th>Command</th><th></th></tr>
+        <tr><td><code>/corp found &lt;TICKER&gt; &lt;name&gt;</code></td><td>Found a corporation.</td></tr>
+        <tr><td><code>/corp invite|accept|leave|kick|promote|demote</code></td><td>Membership. Founders and directors invite, remove and withdraw.</td></tr>
+        <tr><td><code>/corp deposit &lt;n&gt;</code> · <code>withdraw &lt;n&gt;</code></td><td>The shared wallet.</td></tr>
+        <tr><td><code>/fleet invite|accept|leave|kick</code></td><td>Fly together: fleet members stay on your HUD at any range, and kills count for everyone on the same contract.</td></tr>
+        <tr><td><code>/c</code> · <code>/f</code> · <code>/w &lt;pilot&gt;</code></td><td>Talk to your corporation, your fleet, or one pilot.</td></tr>
+        <tr><td><code>/train &lt;skill&gt;</code></td><td>Queue a skill.</td></tr>
+      </table></div>
+
+      <h2 id="systems">The systems</h2>
+      <figure>
+        <img src="screenshots/05-kessler.jpg" alt="Arriving in Kessler Gap." width="1600" height="982" loading="lazy">
+      </figure>
+      <div class="table-wrap"><table>
+        <tr><th>System</th><th>Security</th><th></th></tr>
+        <tr><td>Harrow Reach</td><td>High</td><td>Home. Halden Station, an industrial hub; the farming planet Harrow. Warden patrols, and a raider camp on the planet lane.</td></tr>
+        <tr><td>Kessler Gap</td><td>Low</td><td>No police. Kessler Yard, a Clan outpost that pays well for what it cannot make. Gap Raiders on the lane.</td></tr>
+        <tr><td>Vell Drift</td><td>Null</td><td>Nobody's. Drift Relay, a Guild waystation; Cinder Hold, the Clans' home; the richest rock on the server; and the Clan war-band. Structures can be raised here.</td></tr>
+      </table></div>
+      <p>The three are gated to one another in a triangle.</p>
+
+      <h2 id="multiplayer">Playing together</h2>
+      <p>
+        Single-player runs the same server inside the game. To play together,
+        one person runs the dedicated server and the others connect to it. A
+        secured server issues each player a connect token; ask whoever runs it
+        for yours.
+      </p>
+
+      <h2 id="controls">All controls</h2>
+      <div class="table-wrap"><table>
+        <tr><th>Key</th><th>In flight</th></tr>
+        <tr><td>Mouse</td><td>Steer. Hold the right button to free the cursor.</td></tr>
+        <tr><td><kbd>W</kbd> <kbd>S</kbd> · <kbd>`</kbd> <kbd>1</kbd></td><td>Throttle up, down · zero, full</td></tr>
+        <tr><td><kbd>A</kbd> <kbd>D</kbd> <kbd>R</kbd> <kbd>F</kbd> <kbd>Q</kbd> <kbd>E</kbd></td><td>Strafe left, right, up, down · roll</td></tr>
+        <tr><td><kbd>Shift</kbd></td><td>Afterburner</td></tr>
+        <tr><td><kbd>Z</kbd></td><td>Engine kill</td></tr>
+        <tr><td><kbd>Tab</kbd></td><td>Cruise engines</td></tr>
+        <tr><td><kbd>Space</kbd> / left mouse</td><td>Fire</td></tr>
+        <tr><td><kbd>G</kbd></td><td>Secondary: disruptor or mining laser</td></tr>
+        <tr><td><kbd>T</kbd> <kbd>Y</kbd></td><td>Lock target ahead · clear</td></tr>
+        <tr><td><kbd>F1</kbd>–<kbd>F4</kbd></td><td>Active modules on/off</td></tr>
+        <tr><td><kbd>X</kbd> · <kbd>J</kbd> · <kbd>L</kbd></td><td>Dock · jump · ride a trade lane</td></tr>
+        <tr><td><kbd>K</kbd> · <kbd>Shift</kbd>+<kbd>K</kbd></td><td>Deploy or service a structure · take yours down</td></tr>
+        <tr><td><kbd>M</kbd></td><td>Navmap (arrows choose, <kbd>→</kbd> sets course, <kbd>←</kbd> clears)</td></tr>
+        <tr><td><kbd>Enter</kbd></td><td>Chat (<kbd>Esc</kbd> cancels)</td></tr>
+        <tr><td><kbd>Esc</kbd></td><td>Quit</td></tr>
+        <tr><th>Key</th><th>Docked</th></tr>
+        <tr><td><kbd>Tab</kbd> · <kbd>U</kbd></td><td>Next screen · undock</td></tr>
+        <tr><td>Arrows</td><td>Move the cursor and size orders, on every screen</td></tr>
+        <tr><td><kbd>B</kbd> <kbd>S</kbd></td><td>Buy · sell (trade, exchange, ships, outfit)</td></tr>
+        <tr><td><kbd>A</kbd> <kbd>C</kbd></td><td>Accept a job · abandon yours (bar)</td></tr>
+        <tr><td><kbd>R</kbd> <kbd>P</kbd></td><td>Refine · start production</td></tr>
+        <tr><td><kbd>T</kbd> <kbd>C</kbd> <kbd>X</kbd></td><td>Train · abandon · clear queue (training)</td></tr>
+        <tr><td><kbd>H</kbd> <kbd>F</kbd> <kbd>U</kbd> <kbd>O</kbd></td><td>Switch half · fit · unfit · online/offline (outfit)</td></tr>
+      </table></div>
+    </article>
+  </main>
+
+  <footer>Harrow Reach · Pilot's Manual · describes the current build</footer>
+</body>
+</html>

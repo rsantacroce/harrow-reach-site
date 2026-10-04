@@ -1,0 +1,136 @@
+/* Harrow Reach: the site. The game's own palette, the HUD's own font. */
+
+:root {
+  --bg: #07090d;
+  --panel: #0e131b;
+  --line: #1f2a37;
+  --text: #d6dde6;
+  --muted: #8b97a6;
+  --hud: #9edbb8;       /* the in-game HUD green */
+  --amber: #f2b34d;     /* lane rings and the job marker */
+  --link: #8cc8ff;
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 17px/1.65 var(--sans);
+}
+
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+code, kbd, .mono { font-family: var(--mono); font-size: 0.88em; }
+kbd {
+  display: inline-block;
+  padding: 0 0.45em;
+  border: 1px solid var(--line);
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  background: var(--panel);
+  color: var(--hud);
+  white-space: nowrap;
+}
+
+/* --- navigation -------------------------------------------------------- */
+
+nav.site {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.8rem max(16px, calc((100% - 1100px) / 2 + 16px));
+  background: rgba(7, 9, 13, 0.92);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: 0.9rem;
+}
+nav.site .brand { color: var(--hud); font-weight: 700; letter-spacing: 0.08em; margin-right: auto; }
+nav.site a { color: var(--muted); }
+nav.site a.here, nav.site a:hover { color: var(--text); text-decoration: none; }
+
+/* --- layout ------------------------------------------------------------ */
+
+main { max-width: 1100px; margin: 0 auto; padding: 0 16px 5rem; }
+.narrow { max-width: 760px; }
+
+h1, h2, h3 { line-height: 1.25; }
+h1 { font-size: clamp(2.2rem, 6vw, 3.6rem); margin: 0; letter-spacing: -0.02em; }
+h2 { font-size: 1.6rem; margin: 3.2rem 0 0.8rem; padding-top: 0.4rem; }
+h3 { font-size: 1.15rem; margin: 2rem 0 0.5rem; color: var(--hud); font-family: var(--mono); font-weight: 600; }
+p, ul, ol, table { margin: 0 0 1rem; }
+.muted { color: var(--muted); }
+
+/* --- the front page ------------------------------------------------------ */
+
+.hero { padding: 3.5rem 0 2rem; }
+.hero .kicker { font-family: var(--mono); color: var(--amber); letter-spacing: 0.12em; font-size: 0.85rem; text-transform: uppercase; }
+.hero .lede { font-size: 1.25rem; color: var(--muted); max-width: 46rem; margin-top: 1rem; }
+.hero .actions { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1.6rem; }
+.button {
+  display: inline-block;
+  padding: 0.6rem 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--panel);
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 0.9rem;
+}
+.button.primary { border-color: var(--hud); color: var(--hud); }
+.button:hover { text-decoration: none; border-color: var(--text); }
+
+figure { margin: 0; }
+figure img { display: block; width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--line); }
+figcaption { color: var(--muted); font-size: 0.9rem; margin-top: 0.5rem; }
+.shot-hero { margin: 1rem 0 0; }
+
+.features { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
+.feature { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 1rem 1.1rem; }
+.feature h3 { margin-top: 0; font-size: 1rem; }
+.feature p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+
+.gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.4rem; }
+.gallery a:hover { text-decoration: none; }
+
+.status { border-left: 3px solid var(--amber); padding: 0.4rem 1rem; background: var(--panel); border-radius: 0 6px 6px 0; }
+
+/* --- the manual ---------------------------------------------------------- */
+
+.manual article { min-width: 0; }
+.manual { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 3rem; padding-top: 2.5rem; }
+.toc { position: sticky; top: 4.5rem; align-self: start; font-size: 0.9rem; max-height: calc(100vh - 6rem); overflow: auto; }
+.toc ol { list-style: none; padding: 0; margin: 0; }
+.toc li { margin: 0.2rem 0; }
+.toc a { color: var(--muted); }
+.toc a:hover { color: var(--text); }
+.manual h2:first-of-type { margin-top: 0.5rem; }
+
+table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+th, td { text-align: left; vertical-align: top; padding: 0.45rem 0.6rem; border-bottom: 1px solid var(--line); }
+th { color: var(--muted); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.04em; }
+td:first-child { white-space: nowrap; }
+.table-wrap { overflow-x: auto; }
+
+.note { border: 1px solid var(--line); background: var(--panel); border-radius: 6px; padding: 0.8rem 1rem; font-size: 0.95rem; }
+.note strong { color: var(--amber); }
+
+footer { border-top: 1px solid var(--line); color: var(--muted); font-size: 0.85rem; padding: 2rem 16px; text-align: center; }
+
+@media (max-width: 820px) {
+  /* minmax(0, ...) rather than 1fr: a bare 1fr lets the column grow to its
+     widest content (a table, a run of keys) and the page scrolls sideways. */
+  .manual { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
+  nav.site { font-size: 0.82rem; }
+  .toc { position: static; max-height: none; border: 1px solid var(--line); border-radius: 8px; padding: 0.8rem 1rem; }
+  nav.site { gap: 1rem; }
+  td:first-child { white-space: normal; }
+}

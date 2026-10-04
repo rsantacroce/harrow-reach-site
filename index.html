@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Harrow Reach</title>
+  <meta name="description" content="A space trading and combat game in Rust: fly, trade, mine, fight, take sides, and plant a flag in null space.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%276%27 fill=%27%2307090d%27/%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%279%27 fill=%27none%27 stroke=%27%23f2b34d%27 stroke-width=%273%27/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="site">
+    <span class="brand">HARROW REACH</span>
+    <a href="./" class="here">Home</a>
+    <a href="manual.html">Manual</a>
+    <a href="assets.html">Assets</a>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="kicker">A space game in Rust</div>
+      <h1>Harrow Reach</h1>
+      <p class="lede">
+        Fly, trade, mine and fight across three star systems where the police
+        stop answering the further out you go. Take sides in a campaign that
+        branches, and plant a flag in null space that somebody will come to
+        take down.
+      </p>
+      <div class="actions">
+        <a class="button primary" href="manual.html">Read the manual</a>
+        <a class="button" href="#screenshots">Screenshots</a>
+        <a class="button" href="assets.html">Asset brief</a>
+      </div>
+    </section>
+
+    <figure class="shot-hero">
+      <img src="screenshots/02-convoy.jpg" alt="A Kestrel fighter beside Halden Station, escorting a Guild convoy; the HUD shows the job and a marker on the convoy." width="1600" height="982">
+      <figcaption>Escorting Varga's convoy out of Halden Station. The marker follows the convoy; it waits if you fall behind.</figcaption>
+    </figure>
+
+    <p class="status" style="margin-top:2rem">
+      <strong>In development.</strong> The game is playable from source but has
+      no public download yet. Everything on this site describes the game as it
+      is today, and the screenshots are from the current build: placeholder
+      art, real systems.
+    </p>
+
+    <h2>What is in it</h2>
+    <div class="features">
+      <div class="feature"><h3>Flight</h3><p>Arcade-Newtonian. Kill the engines and drift on your vector while the nose points anywhere. Cruise engines, afterburners, trade lanes at 900 m/s.</p></div>
+      <div class="feature"><h3>A real economy</h3><p>Prices come from stock. Stations make and consume goods, NPC haulers move them, and a raider who catches one takes the delivery out of the market.</p></div>
+      <div class="feature"><h3>Combat</h3><p>Projectiles only: you lead your target. Shields, hull, disruptors that stop a ship from fleeing, and active modules that burn out if you lean on them.</p></div>
+      <div class="feature"><h3>Three systems</h3><p>High-security Harrow Reach, lawless Kessler Gap, and Vell Drift in null space, where losing your ship means losing it.</p></div>
+      <div class="feature"><h3>A campaign that branches</h3><p>Nine steps, three named characters, one choice that splits the story between the law and the pirates, and two endings that change the shared world.</p></div>
+      <div class="feature"><h3>A world that moves</h3><p>Contested systems have a balance every pilot pulls on. Patrols arrive and withdraw with it. One player's ending is everyone's news.</p></div>
+      <div class="feature"><h3>Sovereignty</h3><p>Deploy Warden Relays or Clan Beacons in null space. They push the balance, shelter your friends, and need feeding. Their enemies will come for them.</p></div>
+      <div class="feature"><h3>Industry and corporations</h3><p>Mining, refining, manufacturing, a limit order book, skills that train while you are offline, corporations with a shared wallet, fleets.</p></div>
+      <div class="feature"><h3>Multiplayer from the start</h3><p>Single-player runs the same server in-process. Prediction, reconciliation and delta snapshots mean the ship answers instantly over a real network.</p></div>
+    </div>
+
+    <h2 id="screenshots">Screenshots</h2>
+    <div class="gallery">
+      <figure>
+        <a href="screenshots/01-halden.jpg"><img src="screenshots/01-halden.jpg" alt="Launching from near Halden Station with a bounty job; the HUD points at the raider patrols 5.8 km away." loading="lazy" width="1600" height="982"></a>
+        <figcaption>Leaving Halden on a bounty. The job marker points at the raiders' ground; the amber rings are trade lanes.</figcaption>
+      </figure>
+      <figure>
+        <a href="screenshots/03-lane.jpg"><img src="screenshots/03-lane.jpg" alt="At the ring of a trade lane, lined up toward the Kessler Gap gate." loading="lazy" width="1600" height="982"></a>
+        <figcaption>At a trade lane ring. Press <kbd>L</kbd> and ride to the Kessler Gap gate; anything hostile near the line pulls you out.</figcaption>
+      </figure>
+      <figure>
+        <a href="screenshots/04-docked.jpg"><img src="screenshots/04-docked.jpg" alt="Docked at Halden Station, the trade screen listing commodities with stock and prices." loading="lazy" width="1600" height="982"></a>
+        <figcaption>Docked at Halden. Prices come from stock, so the trade screen is a market, not a price list.</figcaption>
+      </figure>
+      <figure>
+        <a href="screenshots/05-kessler.jpg"><img src="screenshots/05-kessler.jpg" alt="Arriving in Kessler Gap beside the gate, with five Gap Raiders on the contact list." loading="lazy" width="1600" height="982"></a>
+        <figcaption>Arriving in Kessler Gap. Low security, no police, and five raiders already on the contact list.</figcaption>
+      </figure>
+      <figure>
+        <a href="screenshots/06-drift.jpg"><img src="screenshots/06-drift.jpg" alt="In Vell Drift, sheltering under a friendly Warden Relay 700 m ahead." loading="lazy" width="1600" height="982"></a>
+        <figcaption>Vell Drift, under the cover of a player's Warden Relay. Its repair field patches up anyone the Wardens like.</figcaption>
+      </figure>
+    </div>
+
+    <h2>Learn to fly it</h2>
+    <p>
+      The <a href="manual.html">manual</a> covers everything from your first
+      launch to holding a system: controls, flight, trade, combat, fitting,
+      jobs and the campaign, and structures.
+    </p>
+  </main>
+
+  <footer>Harrow Reach · in development · screenshots from the current build</footer>
+</body>
+</html>

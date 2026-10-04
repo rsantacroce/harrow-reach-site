@@ -1,0 +1,1343 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Generated from docs/assets.html in the game repo by
+     scripts/publish-site-assets.sh. Edit the source, not this. -->
+<title>Harrow Reach Asset Brief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<style>
+  :root {
+    --paper:      #F6F7F9;
+    --card:       #FFFFFF;
+    --ink:        #171C24;
+    --muted:      #5C6675;
+    --faint:      #8A93A1;
+    --rule:       #DCE1E8;
+    --rule-soft:  #E8ECF1;
+    --accent:     #B0501F;
+    --accent-dim: #F3E4DB;
+    --steel:      #2E5C8A;
+    --steel-dim:  #E1EAF3;
+    --slate-dim:  #E9ECF0;
+
+    --p0-fg: #8F3F18;  --p0-bg: #F6E3D8;  --p0-br: #E3BFA8;
+    --p1-fg: #24507A;  --p1-bg: #DEE9F4;  --p1-br: #B5CBE2;
+    --p2-fg: #4C5563;  --p2-bg: #E7EAEE;  --p2-br: #CBD1DA;
+
+    --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+    --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+    --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+    --measure: 68ch;
+    --rail: 232px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper:      #10141A;
+      --card:       #171C24;
+      --ink:        #E3E8EF;
+      --muted:      #9AA5B4;
+      --faint:      #6B7686;
+      --rule:       #2A323D;
+      --rule-soft:  #212933;
+      --accent:     #E08048;
+      --accent-dim: #33221A;
+      --steel:      #7FAFDE;
+      --steel-dim:  #1A2733;
+      --slate-dim:  #1D242D;
+
+      --p0-fg: #EE9A66;  --p0-bg: #33221A;  --p0-br: #5A3A26;
+      --p1-fg: #8FBDEA;  --p1-bg: #172532;  --p1-br: #2A4159;
+      --p2-fg: #9AA5B4;  --p2-bg: #1D242D;  --p2-br: #333C48;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --paper:      #10141A;
+    --card:       #171C24;
+    --ink:        #E3E8EF;
+    --muted:      #9AA5B4;
+    --faint:      #6B7686;
+    --rule:       #2A323D;
+    --rule-soft:  #212933;
+    --accent:     #E08048;
+    --accent-dim: #33221A;
+    --steel:      #7FAFDE;
+    --steel-dim:  #1A2733;
+    --slate-dim:  #1D242D;
+
+    --p0-fg: #EE9A66;  --p0-bg: #33221A;  --p0-br: #5A3A26;
+    --p1-fg: #8FBDEA;  --p1-bg: #172532;  --p1-br: #2A4159;
+    --p2-fg: #9AA5B4;  --p2-bg: #1D242D;  --p2-br: #333C48;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 17px;
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .shell {
+    display: grid;
+    grid-template-columns: var(--rail) minmax(0, 1fr);
+    gap: 56px;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 40px 120px;
+    align-items: start;
+  }
+
+  /* ---------- masthead ---------- */
+
+  .masthead {
+    grid-column: 1 / -1;
+    border-bottom: 2px solid var(--ink);
+    padding: 56px 0 22px;
+    margin-bottom: 44px;
+  }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 14px;
+  }
+  h1 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: clamp(38px, 6vw, 62px);
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+    margin: 0 0 18px;
+    text-wrap: balance;
+  }
+  .standfirst {
+    max-width: var(--measure);
+    font-size: 19px;
+    color: var(--muted);
+    margin: 0 0 26px;
+  }
+  .standfirst strong { color: var(--ink); font-weight: 600; }
+
+  .facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    border-top: 1px solid var(--rule);
+    padding-top: 16px;
+  }
+  .fact {
+    padding-right: 34px;
+    margin-right: 34px;
+    border-right: 1px solid var(--rule);
+  }
+  .fact:last-child { border-right: 0; margin-right: 0; padding-right: 0; }
+  .fact dt {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--faint);
+    margin: 0 0 3px;
+  }
+  .fact dd {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 21px;
+    margin: 0;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ---------- rail ---------- */
+
+  nav.rail {
+    position: sticky;
+    top: 28px;
+    font-family: var(--mono);
+    font-size: 12px;
+    line-height: 1.45;
+  }
+  nav.rail ol { list-style: none; margin: 0; padding: 0; }
+  nav.rail li { margin-bottom: 9px; display: flex; gap: 9px; }
+  nav.rail .n { color: var(--faint); font-variant-numeric: tabular-nums; }
+  nav.rail a {
+    color: var(--muted);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+  }
+  nav.rail a:hover, nav.rail a:focus-visible {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  /* ---------- content ---------- */
+
+  main { min-width: 0; }
+  main > section { margin-bottom: 68px; scroll-margin-top: 24px; }
+
+  h2 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 29px;
+    letter-spacing: -0.018em;
+    line-height: 1.15;
+    margin: 0 0 6px;
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    text-wrap: balance;
+  }
+  h2 .num {
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 0.06em;
+    flex: none;
+  }
+  h2 + .lede {
+    max-width: var(--measure);
+    color: var(--muted);
+    margin: 0 0 26px;
+  }
+  section > h2 { padding-bottom: 14px; border-bottom: 1px solid var(--rule); margin-bottom: 22px; }
+
+  h3 {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: -0.01em;
+    margin: 36px 0 8px;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    flex-wrap: wrap;
+  }
+  h4 {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--faint);
+    margin: 26px 0 10px;
+  }
+
+  p { max-width: var(--measure); margin: 0 0 14px; }
+  ul, ol { max-width: var(--measure); padding-left: 22px; margin: 0 0 16px; }
+  li { margin-bottom: 7px; }
+  strong { font-weight: 600; }
+  em { font-style: italic; }
+
+  code, .id {
+    font-family: var(--mono);
+    font-size: 0.85em;
+    background: var(--slate-dim);
+    padding: 1px 5px;
+    border-radius: 2px;
+  }
+  .id { color: var(--accent); font-weight: 500; }
+
+  a { color: var(--steel); text-underline-offset: 2px; }
+
+  /* ---------- priority chips ---------- */
+
+  .p {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 2px 7px;
+    border-radius: 2px;
+    border: 1px solid;
+    flex: none;
+    position: relative;
+    top: -1px;
+  }
+  .p0 { color: var(--p0-fg); background: var(--p0-bg); border-color: var(--p0-br); }
+  .p1 { color: var(--p1-fg); background: var(--p1-bg); border-color: var(--p1-br); }
+  .p2 { color: var(--p2-fg); background: var(--p2-bg); border-color: var(--p2-br); }
+
+  /* ---------- tables ---------- */
+
+  .scroll { overflow-x: auto; margin: 0 0 20px; }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-family: var(--mono);
+    font-size: 12.5px;
+    line-height: 1.5;
+  }
+  th, td {
+    text-align: left;
+    padding: 8px 16px 8px 0;
+    border-bottom: 1px solid var(--rule-soft);
+    vertical-align: top;
+    white-space: nowrap;
+  }
+  td.wrap, th.wrap { white-space: normal; min-width: 22ch; font-family: var(--body); font-size: 15px; }
+  th {
+    font-size: 10px;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--faint);
+    font-weight: 500;
+    border-bottom: 1px solid var(--rule);
+  }
+  td.num { font-variant-numeric: tabular-nums; }
+  tbody tr:last-child td { border-bottom: 0; }
+
+  /* ---------- callout ---------- */
+
+  .rule-box {
+    border-left: 3px solid var(--accent);
+    background: var(--accent-dim);
+    padding: 16px 20px;
+    margin: 0 0 22px;
+    max-width: var(--measure);
+    border-radius: 0 3px 3px 0;
+  }
+  .rule-box p:last-child { margin-bottom: 0; }
+  .rule-box .tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  /* ---------- swatches ---------- */
+
+  .swatches {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin-bottom: 22px;
+  }
+  .sw { background: var(--card); padding: 0; }
+  .sw .chip { height: 46px; display: block; }
+  .sw .meta { padding: 9px 11px 11px; }
+  .sw .name { font-family: var(--display); font-weight: 600; font-size: 13.5px; line-height: 1.25; }
+  .sw .hex { font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: 0.02em; }
+
+  /* ---------- spec grid ---------- */
+
+  .specs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 0;
+    border: 1px solid var(--rule);
+    margin: 0 0 20px;
+  }
+  .spec { padding: 11px 14px; border-right: 1px solid var(--rule); }
+  .spec:last-child { border-right: 0; }
+  .spec dt {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--faint);
+    margin-bottom: 3px;
+  }
+  .spec dd {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 17px;
+    margin: 0;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ---------- faction cards ---------- */
+
+  .factions { display: grid; gap: 18px; margin-bottom: 20px; }
+  .faction {
+    display: grid;
+    grid-template-columns: 4px 1fr;
+    gap: 18px;
+    align-items: start;
+  }
+  .faction .stripe { background: var(--fc); border-radius: 2px; align-self: stretch; }
+  .faction .body h3 { margin-top: 0; }
+  .faction .body p { margin-bottom: 0; }
+
+  /* ---------- manifest ---------- */
+
+  .manifest { max-width: var(--measure); }
+  .manifest h4 { display: flex; align-items: center; gap: 10px; }
+  .manifest ul { list-style: none; padding: 0; margin: 0 0 26px; }
+  .manifest li { margin: 0; border-bottom: 1px solid var(--rule-soft); }
+  .manifest label {
+    display: flex;
+    gap: 11px;
+    align-items: baseline;
+    padding: 8px 2px;
+    cursor: pointer;
+    font-family: var(--mono);
+    font-size: 12.5px;
+    line-height: 1.5;
+  }
+  .manifest input { margin: 0; accent-color: var(--accent); position: relative; top: 2px; flex: none; }
+  .manifest input:checked + span { color: var(--faint); text-decoration: line-through; }
+  .manifest label:hover { background: var(--rule-soft); }
+  .count {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--faint);
+    font-weight: 400;
+    text-transform: none;
+  }
+
+  footer {
+    grid-column: 1 / -1;
+    border-top: 1px solid var(--rule);
+    padding-top: 20px;
+    margin-top: 20px;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--faint);
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  @media (max-width: 900px) {
+    .shell { grid-template-columns: 1fr; gap: 0; padding: 0 22px 80px; }
+    nav.rail { position: static; margin-bottom: 44px; padding-bottom: 24px; border-bottom: 1px solid var(--rule); }
+    nav.rail ol { columns: 2; column-gap: 26px; }
+    .fact { border-right: 0; margin-right: 26px; padding-right: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+<div style="font:600 14px/1.4 ui-monospace,Menlo,monospace;padding:10px 16px;background:#07090d;border-bottom:1px solid #1f2a37;display:flex;gap:20px;align-items:center;flex-wrap:wrap">
+  <a href="./" style="color:#9edbb8;text-decoration:none;letter-spacing:.08em">HARROW REACH</a>
+  <a href="./" style="color:#8b97a6;text-decoration:none">Home</a>
+  <a href="manual.html" style="color:#8b97a6;text-decoration:none">Manual</a>
+  <span style="color:#d6dde6">Assets</span>
+</div>
+
+
+<div class="shell">
+
+  <header class="masthead">
+    <p class="eyebrow">Harrow Reach · production brief</p>
+    <h1>Asset Brief</h1>
+    <p class="standfirst">Everything this game needs modelled, drawn, animated or recorded,
+      described closely enough to produce without reading the source. Every identifier below is
+      real, taken from <code>assets/data/*.ron</code>; every dimension comes from the numbers the
+      simulation already uses. <strong>Assets that do not match those numbers look wrong in ways
+      that are hard to diagnose</strong> — a ship modelled at twice its hit radius appears to
+      absorb shots that visibly missed.</p>
+    <dl class="facts">
+      <div class="fact"><dt>Engine</dt><dd>Bevy 0.19</dd></div>
+      <div class="fact"><dt>Forward axis</dt><dd>&minus;Z</dd></div>
+      <div class="fact"><dt>Units</dt><dd>Metres</dd></div>
+      <div class="fact"><dt>Hulls</dt><dd>3</dd></div>
+      <div class="fact"><dt>Modules</dt><dd>14</dd></div>
+      <div class="fact"><dt>Systems</dt><dd>2</dd></div>
+      <div class="fact"><dt>P0 items</dt><dd>14</dd></div>
+    </dl>
+  </header>
+
+  <nav class="rail" aria-label="Sections">
+    <ol>
+      <li><span class="n">01</span><a href="#use">How to use this</a></li>
+      <li><span class="n">02</span><a href="#contract">Technical contract</a></li>
+      <li><span class="n">03</span><a href="#direction">Art direction</a></li>
+      <li><span class="n">04</span><a href="#factions">Faction identity</a></li>
+      <li><span class="n">05</span><a href="#ships">Ships</a></li>
+      <li><span class="n">06</span><a href="#world">The world</a></li>
+      <li><span class="n">07</span><a href="#weapons">Weapons</a></li>
+      <li><span class="n">07a</span><a href="#equipment">Equipment</a></li>
+      <li><span class="n">08</span><a href="#vfx">Visual effects</a></li>
+      <li><span class="n">09</span><a href="#ui">Interface</a></li>
+      <li><span class="n">10</span><a href="#icons">Icons</a></li>
+      <li><span class="n">11</span><a href="#audio">Audio</a></li>
+      <li><span class="n">12</span><a href="#type">Typography</a></li>
+      <li><span class="n">13</span><a href="#manifest">Manifest</a></li>
+      <li><span class="n">14</span><a href="#excluded">Not included</a></li>
+    </ol>
+  </nav>
+
+  <main>
+
+    <!-- 01 -->
+    <section id="use">
+      <h2><span class="num">01</span>How to use this</h2>
+      <p>Each entry gives an <strong>id</strong>, a <strong>brief</strong>, and the
+        <strong>constraints</strong> that make it fit. Feed a single entry to an image or model
+        generator; do not feed the whole document at once, because the constraints are per-asset
+        and a generator will average them.</p>
+      <p>A workable prompt is the brief, plus the art direction in §03, plus the faction livery in
+        §04 if the asset belongs to one. The constraints are for whoever wires it in, not for the
+        generator.</p>
+      <h4>Priority</h4>
+      <div class="scroll">
+        <table>
+          <tbody>
+            <tr><td><span class="p p0">P0</span></td><td class="wrap">The game is visibly incomplete without it. Ships, stations, the HUD.</td></tr>
+            <tr><td><span class="p p1">P1</span></td><td class="wrap">The game reads as unfinished without it. Effects, icons, core audio.</td></tr>
+            <tr><td><span class="p p2">P2</span></td><td class="wrap">Polish. Music, ambience, faction logos, decals.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 02 -->
+    <section id="contract">
+      <h2><span class="num">02</span>Technical contract</h2>
+      <div class="scroll">
+        <table>
+          <tbody>
+            <tr><td>Engine</td><td class="wrap">Bevy 0.19, client only — the server never loads an asset</td></tr>
+            <tr><td>Models</td><td class="wrap">glTF 2.0 binary (<code>.glb</code>), one file per object, Y-up, metres</td></tr>
+            <tr><td>Textures</td><td class="wrap">PNG, power-of-two; 2048² for hero assets, 1024² otherwise</td></tr>
+            <tr><td>Materials</td><td class="wrap">PBR: base colour, metallic-roughness, normal, emissive</td></tr>
+            <tr><td>Audio</td><td class="wrap">OGG Vorbis at 48&nbsp;kHz — mono for positional sources, stereo for music</td></tr>
+            <tr><td>Interface</td><td class="wrap">PNG with alpha, or SVG for anything that scales</td></tr>
+            <tr><td>Colour space</td><td class="wrap">Base colour and emissive sRGB; normal, metallic and roughness linear</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="rule-box">
+        <span class="tag">The one convention that will break everything</span>
+        <p><strong>&minus;Z is forward, +Y is up, +X is right.</strong> This is what
+          <code>shared/src/sim.rs</code> steers with. A model authored nose-along-+Z flies
+          backwards. The current placeholder rotates a cone &minus;90° about X to point it down
+          &minus;Z; a properly authored asset should need no rotation at all.</p>
+      </div>
+
+      <p>Origin at the <strong>centre of mass</strong> — for a ship, roughly the centre of the
+        hull, not the nose. The ship rotates about its origin, so an off-centre origin makes the
+        hull swing rather than turn.</p>
+
+      <h3>Scale</h3>
+      <p>Ships are sized by <code>hit_radius</code>, the radius of the sphere weapons test
+        against. A model must <strong>fit inside its hit sphere</strong> — anything outside it can
+        be shot through.</p>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>Hull</th><th>hit_radius</th><th>Target length</th><th>Target wingspan</th></tr></thead>
+          <tbody>
+            <tr><td><span class="id">kestrel</span></td><td class="num">11 m</td><td class="num">18–21 m</td><td class="num">12–15 m</td></tr>
+            <tr><td><span class="id">bulwark</span></td><td class="num">15 m</td><td class="num">24–28 m</td><td class="num">16–20 m</td></tr>
+            <tr><td><span class="id">drone_hauler</span></td><td class="num">24 m</td><td class="num">40–46 m</td><td class="num">20–26 m</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><code>ShipClass.visual_scale</code> exists in the data model as a multiplier and is
+        currently <strong>unused</strong> — ships render as primitive assemblies about 5&nbsp;m
+        long. Author to the table above and drop it. A model whose true size is a data-file
+        multiplier is a model nobody can inspect.</p>
+
+      <h3>Polygon budgets</h3>
+      <p>Interest management replicates up to 24 ships at once, so a busy station means two dozen
+        hulls and their effects on screen together.</p>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>Class</th><th>Triangles</th><th class="wrap">Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Fighter hull</td><td class="num">8k–15k</td><td class="wrap">One LOD at 30% for beyond 2 km</td></tr>
+            <tr><td>Freighter hull</td><td class="num">15k–25k</td><td class="wrap"></td></tr>
+            <tr><td>Station</td><td class="num">40k–80k</td><td class="wrap">Hero asset — seen from 600 m and closer</td></tr>
+            <tr><td>Planet</td><td class="num">2k</td><td class="wrap">A sphere with a very good texture</td></tr>
+            <tr><td>Jump gate</td><td class="num">15k</td><td class="wrap"></td></tr>
+            <tr><td>Asteroid</td><td class="num">300–1,500</td><td class="wrap">Six variants, instanced hundreds of times</td></tr>
+            <tr><td>Container</td><td class="num">500</td><td class="wrap"></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Naming</h3>
+      <p><code>&lt;category&gt;/&lt;id&gt;.&lt;ext&gt;</code>, using the id from the data files
+        verbatim: <code>ships/kestrel.glb</code>,
+        <code>icons/commodity/iron_ore.png</code>, <code>audio/weapon/pulse_1_fire.ogg</code>. The
+        ids are the join between this document and the code; renaming one breaks that join
+        silently.</p>
+    </section>
+
+    <!-- 03 -->
+    <section id="direction">
+      <h2><span class="num">03</span>Art direction</h2>
+      <p class="lede">The reference is Freelancer (2003), not Elite Dangerous.</p>
+      <p>Hulls are readable at a glance and slightly stylised: clear silhouettes, flat panelled
+        surfaces, visible engine glow, colour that says who built the thing. Not gritty
+        photorealism, not cartoon. A player should be able to name a ship class from its outline
+        at 2&nbsp;km.</p>
+      <p><strong>Space is dark and coloured.</strong> The clear colour is very nearly black with a
+        blue cast. The key light is warm white at a low angle; ambient is cool and dim. That
+        contrast is deliberate — it makes hulls read as lit objects in a dark place rather than as
+        flat sprites.</p>
+
+      <h3>Palette</h3>
+      <p>Taken from the code, so the world and the interface agree.</p>
+      <div class="swatches">
+        <div class="sw"><span class="chip" style="background:#02030A"></span><div class="meta"><div class="name">Space</div><div class="hex">#02030A</div></div></div>
+        <div class="sw"><span class="chip" style="background:#FFF5E0"></span><div class="meta"><div class="name">Key light</div><div class="hex">#FFF5E0</div></div></div>
+        <div class="sw"><span class="chip" style="background:#8C9ED9"></span><div class="meta"><div class="name">Ambient</div><div class="hex">#8C9ED9</div></div></div>
+        <div class="sw"><span class="chip" style="background:#9EA8B8"></span><div class="meta"><div class="name">Hull, own</div><div class="hex">#9EA8B8</div></div></div>
+        <div class="sw"><span class="chip" style="background:#6B809E"></span><div class="meta"><div class="name">Hull, others</div><div class="hex">#6B809E</div></div></div>
+        <div class="sw"><span class="chip" style="background:#BF5926"></span><div class="meta"><div class="name">Trim, own</div><div class="hex">#BF5926</div></div></div>
+        <div class="sw"><span class="chip" style="background:#408CBF"></span><div class="meta"><div class="name">Trim, others</div><div class="hex">#408CBF</div></div></div>
+        <div class="sw"><span class="chip" style="background:#66B2FF"></span><div class="meta"><div class="name">Engine glow</div><div class="hex">#66B2FF</div></div></div>
+        <div class="sw"><span class="chip" style="background:#FFD966"></span><div class="meta"><div class="name">Tracer</div><div class="hex">#FFD966</div></div></div>
+        <div class="sw"><span class="chip" style="background:#9EDBB8"></span><div class="meta"><div class="name">HUD text</div><div class="hex">#9EDBB8</div></div></div>
+        <div class="sw"><span class="chip" style="background:#EBD69E"></span><div class="meta"><div class="name">Station text</div><div class="hex">#EBD69E</div></div></div>
+        <div class="sw"><span class="chip" style="background:#FF735A"></span><div class="meta"><div class="name">Alert / lead</div><div class="hex">#FF735A</div></div></div>
+        <div class="sw"><span class="chip" style="background:#4D4742"></span><div class="meta"><div class="name">Asteroid rock</div><div class="hex">#4D4742</div></div></div>
+        <div class="sw"><span class="chip" style="background:#268C59"></span><div class="meta"><div class="name">Planet surface</div><div class="hex">#268C59</div></div></div>
+      </div>
+
+      <div class="rule-box">
+        <span class="tag">The one rule</span>
+        <p><strong>Emissive is information.</strong> Anything that glows in this game means
+          something: engines are thrust, tracers are damage in flight, station lights are a place
+          you can dock. Do not add decorative glow to hull panels — it makes the things that
+          matter harder to see.</p>
+      </div>
+    </section>
+
+    <!-- 04 -->
+    <section id="factions">
+      <h2><span class="num">04</span>Faction identity</h2>
+      <p class="lede">Four factions. Each needs a livery, a logo that reads at 32&nbsp;px, and a
+        structure palette.</p>
+      <div class="factions">
+        <div class="faction" style="--fc:#1F3A6E">
+          <div class="stripe"></div>
+          <div class="body">
+            <h3><span class="id">reach_compact</span> The Reach Compact <span class="p p2">P2</span></h3>
+            <p>The established power: industrial, bureaucratic, prosperous. White and navy over
+              brushed steel; clean lines, everything stencilled with registration numbers. Logo: a
+              stylised five-pointed star inside a ring, <code>#1F3A6E</code> on white. Their
+              station is Halden — big, lit, obviously expensive to run.</p>
+          </div>
+        </div>
+        <div class="faction" style="--fc:#F2B705">
+          <div class="stripe"></div>
+          <div class="body">
+            <h3><span class="id">wardens</span> Compact Wardens <span class="p p2">P2</span></h3>
+            <p>The Compact's enforcement arm, and a separate faction. Same hull shapes, different
+              paint: white with a broad <code>#F2B705</code> amber stripe along the flank and
+              flashing amber running lights. Logo: the Compact star behind a shield. It must read
+              at a glance as <em>authority</em> — a pilot should know from the silhouette and the
+              stripe that shooting this is a decision.</p>
+          </div>
+        </div>
+        <div class="faction" style="--fc:#7A6A3F">
+          <div class="stripe"></div>
+          <div class="body">
+            <h3><span class="id">traders_guild</span> Traders Guild <span class="p p2">P2</span></h3>
+            <p>Merchants, not soldiers. Worn olive and cream, heavy container hardpoints,
+              mismatched replacement panels — working ships repaired badly for twenty years. Logo:
+              a pair of scales over a cargo pod, <code>#7A6A3F</code>.</p>
+          </div>
+        </div>
+        <div class="faction" style="--fc:#8C2020">
+          <div class="stripe"></div>
+          <div class="body">
+            <h3><span class="id">cinder_clans</span> The Cinder Clans <span class="p p2">P2</span></h3>
+            <p>Pirates, and the owners of Kessler Yard. Everything scavenged: exposed plating,
+              asymmetric welded-on armour, no two panels the same shade of rust and charcoal. Deep
+              red running lights instead of white. Logo: a broken ring, hand-painted rather than
+              stencilled, <code>#8C2020</code>. Their outpost should look like a station somebody
+              else built and they took.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 -->
+    <section id="ships">
+      <h2><span class="num">05</span>Ships</h2>
+      <p class="lede">Three hulls, each flown by players and NPCs alike — an NPC is a
+        <code>ShipInput</code> producer, not a different kind of object.</p>
+      <p>Hardpoint offsets are <strong>exact, in metres, in hull-local space</strong>, from
+        <code>assets/data/ships.ron</code>. They are where muzzle flashes, mining beams and engine
+        effects attach. Model the corresponding hardware at those points or the effects will
+        float. The offsets are given at the placeholder's ~5&nbsp;m scale: multiply by roughly
+        four when authoring at full size, and keep the <em>arrangement</em>.</p>
+
+      <h3><span class="id">kestrel</span> Kestrel <span class="p p0">P0</span></h3>
+      <dl class="specs">
+        <div class="spec"><dt>Class</dt><dd>LightFighter</dd></div>
+        <div class="spec"><dt>Top speed</dt><dd>90 m/s</dd></div>
+        <div class="spec"><dt>Hold</dt><dd>30 m³</dd></div>
+        <div class="spec"><dt>Hit radius</dt><dd>11 m</dd></div>
+      </dl>
+      <p>The starter hull and the most-seen object in the game. A compact single-seat interceptor
+        around 20&nbsp;m long: forward-swept wings, a canopy set well forward, two engine bells
+        aft. It should look <em>cheap and fast</em> — a hull somebody could afford as their first
+        ship. Panel lines flat and functional, no ornament. The canopy should be transparent
+        enough to imply a pilot without one being modelled.</p>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>Slot</th><th>Kind</th><th>Size</th><th>Fitted</th><th>Offset (x, y, z)</th></tr></thead>
+          <tbody>
+            <tr><td>gun_l</td><td>Gun</td><td class="num">1</td><td><span class="id">pulse_1</span></td><td class="num">(−1.2, −0.1, −0.6)</td></tr>
+            <tr><td>gun_r</td><td>Gun</td><td class="num">1</td><td><span class="id">pulse_1</span></td><td class="num">(1.2, −0.1, −0.6)</td></tr>
+            <tr><td>disruptor</td><td>EWar</td><td class="num">1</td><td><span class="id">disruptor_1</span></td><td class="num">(0.0, −0.5, −0.4)</td></tr>
+            <tr><td>shield</td><td>Shield</td><td class="num">1</td><td>—</td><td class="num">(0.0, 0.0, 0.0)</td></tr>
+            <tr><td>cm</td><td>Countermeasure</td><td class="num">1</td><td>—</td><td class="num">(0.0, −0.3, 0.8)</td></tr>
+            <tr><td>engine</td><td>Thruster</td><td class="num">1</td><td>—</td><td class="num">(0.0, 0.0, 1.9)</td></tr>
+            <tr><td>rig</td><td>Rig</td><td class="num">1</td><td>—</td><td class="num">(0.0, 0.2, 0.4)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Guns just outboard and slightly below the nose, disruptor under the chin, countermeasure
+        launcher aft-ventral. Two thruster bells at approximately (±0.45, 0, +1.9), as separately
+        named nodes so the engine glow can attach and scale with throttle.</p>
+
+      <h3><span class="id">bulwark</span> Bulwark <span class="p p0">P0</span></h3>
+      <dl class="specs">
+        <div class="spec"><dt>Class</dt><dd>HeavyFighter</dd></div>
+        <div class="spec"><dt>Top speed</dt><dd>78 m/s</dd></div>
+        <div class="spec"><dt>Hold</dt><dd>60 m³</dd></div>
+        <div class="spec"><dt>Hit radius</dt><dd>15 m</dd></div>
+      </dl>
+      <p>The gunship, and what Compact Wardens fly. Broad-shouldered and armoured, about 26&nbsp;m.
+        Where the Kestrel is swept and thin, this is blocky and layered: bolted-on plates, a
+        heavier nose housing the centre cannon, twin engines set wide. It should look like it can
+        take a beating — visibly thicker than the Kestrel at the same distance. It also has to
+        wear the police amber stripe well, so keep a long uninterrupted flank surface.</p>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>Slot</th><th>Kind</th><th>Size</th><th>Fitted</th><th>Offset (x, y, z)</th></tr></thead>
+          <tbody>
+            <tr><td>gun_l</td><td>Gun</td><td class="num">2</td><td><span class="id">pulse_2</span></td><td class="num">(−1.8, −0.1, −0.5)</td></tr>
+            <tr><td>gun_r</td><td>Gun</td><td class="num">2</td><td><span class="id">pulse_2</span></td><td class="num">(1.8, −0.1, −0.5)</td></tr>
+            <tr><td>gun_c</td><td>Gun</td><td class="num">2</td><td><span class="id">cannon_1</span></td><td class="num">(0.0, 0.5, −0.9)</td></tr>
+            <tr><td>missile</td><td>Missile</td><td class="num">2</td><td><span class="id">missile_1</span></td><td class="num">(0.0, −0.5, −0.2)</td></tr>
+            <tr><td>miner</td><td>Mining</td><td class="num">1</td><td><span class="id">miner_1</span></td><td class="num">(0.0, −0.7, −1.0)</td></tr>
+            <tr><td>shield</td><td>Shield</td><td class="num">2</td><td>—</td><td class="num">(0.0, 0.0, 0.0)</td></tr>
+            <tr><td>cm</td><td>Countermeasure</td><td class="num">1</td><td>—</td><td class="num">(0.0, −0.3, 0.9)</td></tr>
+            <tr><td>engine</td><td>Thruster</td><td class="num">2</td><td>—</td><td class="num">(0.0, 0.0, 2.1)</td></tr>
+            <tr><td>rig_a</td><td>Rig</td><td class="num">2</td><td>—</td><td class="num">(−0.6, 0.3, 0.5)</td></tr>
+            <tr><td>rig_b</td><td>Rig</td><td class="num">1</td><td>—</td><td class="num">(0.6, 0.3, 0.5)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>The centre cannon sits <strong>above</strong> the nose line and the mining laser
+        <strong>below</strong> it. That vertical separation should be visible — it is how a player
+        tells at a glance whether the thing pointed at them is a gun or a tool.</p>
+
+      <h3><span class="id">drone_hauler</span> Drone-class Hauler <span class="p p0">P0</span></h3>
+      <dl class="specs">
+        <div class="spec"><dt>Class</dt><dd>Freighter</dd></div>
+        <div class="spec"><dt>Top speed</dt><dd>55 m/s</dd></div>
+        <div class="spec"><dt>Hold</dt><dd>275 m³</dd></div>
+        <div class="spec"><dt>Hit radius</dt><dd>24 m</dd></div>
+      </dl>
+      <p>The industrial hull, and what the NPC haulers fly — so it is seen constantly on the
+        Halden–Harrow run. A slab-sided freighter about 44&nbsp;m long, built around its cargo
+        section: an obvious spine with modular container bays clamped along it, a small crew
+        module forward, four engines aft. The name is <em>Drone-class</em>: it should look
+        semi-automated, few windows, a lot of external machinery. Two turret rings, dorsal and
+        ventral, must be visibly rotatable hardware even though turrets currently fire along the
+        hull's nose.</p>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>Slot</th><th>Kind</th><th>Size</th><th>Fitted</th><th>Offset (x, y, z)</th></tr></thead>
+          <tbody>
+            <tr><td>turret_t</td><td>Turret</td><td class="num">1</td><td><span class="id">turret_1</span></td><td class="num">(0.0, 1.4, 0.0)</td></tr>
+            <tr><td>turret_b</td><td>Turret</td><td class="num">1</td><td><span class="id">turret_1</span></td><td class="num">(0.0, −1.4, 0.0)</td></tr>
+            <tr><td>miner_l</td><td>Mining</td><td class="num">1</td><td><span class="id">miner_1</span></td><td class="num">(−1.6, −0.6, −1.2)</td></tr>
+            <tr><td>miner_r</td><td>Mining</td><td class="num">1</td><td><span class="id">miner_1</span></td><td class="num">(1.6, −0.6, −1.2)</td></tr>
+            <tr><td>shield</td><td>Shield</td><td class="num">2</td><td>—</td><td class="num">(0.0, 0.0, 0.0)</td></tr>
+            <tr><td>rig_a</td><td>Rig</td><td class="num">2</td><td>—</td><td class="num">(0.0, −0.8, −1.0)</td></tr>
+            <tr><td>rig_b</td><td>Rig</td><td class="num">2</td><td>—</td><td class="num">(0.0, 0.8, −1.0)</td></tr>
+            <tr><td>rig_c</td><td>Rig</td><td class="num">1</td><td>—</td><td class="num">(0.0, −0.8, 1.0)</td></tr>
+            <tr><td>engine</td><td>Thruster</td><td class="num">2</td><td>—</td><td class="num">(0.0, 0.0, 2.6)</td></tr>
+            <tr><td>scanner</td><td>Scanner</td><td class="num">1</td><td>—</td><td class="num">(0.0, 0.9, −1.4)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><strong>Three rig mounts are the Hauler's character.</strong> It has grid
+        for days and a processor that runs out long before it, so a fully rigged
+        freighter has to choose. Model them as visible external hardpoints along the
+        spine, big enough that a fitted module could plausibly be bolted there.</p>
+
+      <h4>Per hull, also needed <span class="p p1">P1</span></h4>
+      <ul>
+        <li><strong>LOD1</strong> at ~30% triangles, used past 2&nbsp;km.</li>
+        <li><strong>A damaged state</strong>, or at minimum a material variant with scorching and
+          a blown panel or two. Hull integrity is replicated and shown on the HUD; seeing it would
+          be better.</li>
+        <li><strong>Four liveries</strong> as texture variants sharing one mesh.</li>
+      </ul>
+    </section>
+
+    <!-- 06 -->
+    <section id="world">
+      <h2><span class="num">06</span>The world</h2>
+
+      <h3><span class="id">halden</span> Halden Station <span class="p p0">P0</span></h3>
+      <dl class="specs">
+        <div class="spec"><dt>System</dt><dd>Harrow Reach</dd></div>
+        <div class="spec"><dt>Position</dt><dd>(0, 0, −3000)</dd></div>
+        <div class="spec"><dt>Radius</dt><dd>220 m</dd></div>
+        <div class="spec"><dt>Dock within</dt><dd>600 m</dd></div>
+      </dl>
+      <p>The Compact's industrial station: bar, trader, ship dealer, equipment dealer, repair,
+        refinery, manufacturing, market orders. The busiest place in the game and the first thing
+        a new player flies to — it sits 1.8&nbsp;km straight ahead of the spawn point and the
+        whole approach is spent looking at it.</p>
+      <p>A central spindle with a habitation ring, flanked by refinery stacks and a manufacturing
+        block with visible gantries and cargo handling. Lit windows in irregular clusters. The
+        docking approach clearly marked with a lit bay mouth and approach strobes on the nearest
+        face. Compact livery: white and navy, clean, expensive, with an enormous stencilled
+        registration. It should read as <em>a place where several hundred people work</em>.</p>
+      <p><strong>It must have a distinct front.</strong> The player always approaches from roughly
+        &minus;Z-ward, and a station that looks the same from every angle gives them nothing to
+        aim at.</p>
+
+      <h3><span class="id">drift_relay</span> Drift Relay <span class="p p1">P1</span></h3>
+      <dl class="specs">
+        <div class="spec"><dt>System</dt><dd>Vell Drift</dd></div>
+        <div class="spec"><dt>Position</dt><dd>(1500, 300, 1500)</dd></div>
+        <div class="spec"><dt>Radius</dt><dd>180 m</dd></div>
+        <div class="spec"><dt>Dock within</dt><dd>520 m</dd></div>
+      </dl>
+      <p>The Traders Guild waystation in null security: bar, trader, repair, refinery. A compact
+        ring with ice-processing tanks on one side and heavy shield plating facing Cinder Hold.
+        Lit like it expects visitors and has had bad ones; Guild amber, used sparingly.</p>
+
+      <h3><span class="id">cinder_hold</span> Cinder Hold <span class="p p1">P1</span></h3>
+      <dl class="specs">
+        <div class="spec"><dt>System</dt><dd>Vell Drift</dd></div>
+        <div class="spec"><dt>Position</dt><dd>(−2600, −400, −3800)</dd></div>
+        <div class="spec"><dt>Radius</dt><dd>200 m</dd></div>
+        <div class="spec"><dt>Dock within</dt><dd>560 m</dd></div>
+      </dl>
+      <p>The Cinder Clans' home: bar, trader, repair, market orders; refuses anyone who has been
+        hunting them. Kessler Yard's bigger, older sibling: a hollowed rock fortified over
+        generations, trophies welded to the outside (hull sections of ships they took, still in
+        their owners' liveries), ember-red light leaking from cracks.</p>
+
+      <h3>Player structures <span class="p p1">P1</span></h3>
+      <p>Two kinds, deployed by players in null security. Currently a 60&nbsp;m grey mast with an
+        amber ring at its head; stationary, hit radius 28&nbsp;m, and they must read at several
+        kilometres as <em>built by somebody</em>. <span class="id">warden_relay</span>: a Compact
+        signal mast, clean and regimented, blue-white beacons, the Compact star.
+        <span class="id">clan_beacon</span>: a salvaged reactor with a war-banner welded on,
+        burning, trophies hung from the frame. Each kit (<span class="id">relay_kit</span>,
+        <span class="id">beacon_kit</span>) wants an icon in the commodity set.</p>
+
+      <h3><span class="id">kessler_yard</span> Kessler Yard <span class="p p0">P0</span></h3>
+      <dl class="specs">
+        <div class="spec"><dt>System</dt><dd>Kessler Gap</dd></div>
+        <div class="spec"><dt>Position</dt><dd>(600, −200, −2200)</dd></div>
+        <div class="spec"><dt>Radius</dt><dd>160 m</dd></div>
+        <div class="spec"><dt>Dock within</dt><dd>520 m</dd></div>
+      </dl>
+      <p>The Cinder Clan outpost: bar, trader, repair, refinery, market orders. Low security, no
+        police, and it pays well for what it cannot make. Smaller and meaner than Halden — an
+        asteroid with structures welded onto it, or a captured hull section repurposed as a base.
+        Asymmetric, patched, no two modules matching, deep red running lights. Where Halden
+        looks maintained, this looks <em>held together</em>. One obvious docking slot, badly
+        lit.</p>
+
+      <h3><span class="id">harrow</span> Harrow <span class="p p0">P0</span></h3>
+      <dl class="specs">
+        <div class="spec"><dt>Kind</dt><dd>Planet</dd></div>
+        <div class="spec"><dt>Position</dt><dd>(6000, −800, −9000)</dd></div>
+        <div class="spec"><dt>Radius</dt><dd>2800 m</dd></div>
+        <div class="spec"><dt>Land within</dt><dd>3600 m</dd></div>
+      </dl>
+      <p>Traders Guild. It grows and digs, and imports everything made in orbit. A green-and-ochre
+        habitable world seen from orbit: continents of cultivated land, visible mining scars, a
+        thin atmospheric haze on the limb, a handful of settlement lights on the night side. Needs
+        an 8192×4096 equirectangular albedo, a matching normal, and a cloud layer as a separate
+        slightly larger sphere. Currently a flat <code>#268C59</code> sphere, which is the single
+        biggest visual gap in the game.</p>
+
+      <h3>Jump gates <span class="p p0">P0</span></h3>
+      <p>Two, one per system, each <strong>500&nbsp;m radius</strong> — a ring you fly
+        <em>into</em>, not a door. Harrow Reach's is at (−5200, 300, −1400); Kessler Gap's at
+        (0, 0, 2600).</p>
+      <p>A massive open ring with four or six anchor pylons, inactive by default, the interior
+        holding a faint distortion that flares when a ship jumps. It should be visible from
+        several kilometres — this is a navigation landmark, and a gate a player cannot find is a
+        system they cannot leave. Include a slowly rotating outer collar so it reads as machinery
+        rather than architecture.</p>
+
+      <h3>Trade lane rings <span class="p p1">P1</span></h3>
+      <p>Three lanes: Halden to the Kessler Gap gate and Halden to Harrow in Harrow Reach,
+        the gate to Kessler Yard in Kessler Gap. Each has an <strong>end ring</strong> at both
+        ends (enter within <strong>300&nbsp;m</strong>; currently a 120&nbsp;m torus) and a
+        smaller <strong>line ring</strong> every kilometre between, all facing along the lane.
+        Currently amber <code>#F2B34D</code> emissive tori.</p>
+      <p>An end ring is a docking-ring-sized hoop on a short pylon, with a beacon that reads at
+        several kilometres: it is where a pilot lines up. Line rings are lighter versions of the
+        same shape and, in a row, should read as a route at a glance. Rings flashing in sequence
+        as a ship rides past are optional, but that is what tells a pilot the lane is carrying
+        them.</p>
+
+      <h3>Asteroid fields <span class="p p1">P1</span></h3>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>id</th><th>System</th><th>Centre</th><th>Radius</th><th>Kind</th></tr></thead>
+          <tbody>
+            <tr><td><span class="id">halden_belt</span></td><td>Harrow Reach</td><td class="num">(2400, 200, −4200)</td><td class="num">900 m</td><td>Asteroid</td></tr>
+            <tr><td><span class="id">gap_deeps</span></td><td>Kessler Gap</td><td class="num">(−1800, −300, −3400)</td><td class="num">1400 m</td><td>Asteroid</td></tr>
+            <tr><td><span class="id">vell_shoals</span></td><td>Vell Drift</td><td class="num">(2800, −600, −2600)</td><td class="num">1500 m</td><td>Asteroid</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Six to eight asteroid meshes, 300–1,500 triangles each, instanced with random scale and
+        rotation. Irregular, cratered, dusty grey-brown with darker crevices. Two variants should
+        carry <strong>visible ore veins</strong> — a warmer, faintly metallic streak — because a
+        miner should be able to tell a rock with iron in it from one without, even though the
+        simulation does not yet distinguish them. Add a mined variant with a fresh bright scar,
+        and a dust-and-debris particle layer filling the field volume so flying into a belt feels
+        like entering something rather than crossing a line.</p>
+
+      <h3>System backdrops <span class="p p2">P2</span></h3>
+      <p>Today every system shares one generic starfield, so arriving somewhere new looks like
+        arriving nowhere. One skybox per system (cubemap, 2048&nbsp;px a face,
+        <code>skybox/&lt;system id&gt;_{px,nx,py,ny,pz,nz}.png</code>), dim enough that the HUD and
+        contacts stay readable over it. The three should be told apart at a glance from the
+        arrival point: that glance is how a pilot knows a jump worked.</p>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>id</th><th>Name</th><th>Security</th><th class="wrap">Mood</th></tr></thead>
+          <tbody>
+            <tr><td><span class="id">harrow_reach</span></td><td>Harrow Reach</td><td>High</td><td class="wrap">Warm and lived-in: a yellow-white sun low on one side, Harrow's green glow, dense traffic-lit lanes. Safe.</td></tr>
+            <tr><td><span class="id">kessler_gap</span></td><td>Kessler Gap</td><td>Low</td><td class="wrap">Dusty and dim: a brown-grey dust band across the sky, a distant red dwarf, wreck-glitter in the dust. Exposed.</td></tr>
+            <tr><td><span class="id">vell_drift</span></td><td>Vell Drift</td><td>Null</td><td class="wrap">Cold and deep: blue-violet nebula filaments, no near star, one ember-red smudge where Cinder Hold's reactors light the dust. Nobody's.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3><span class="id">loot</span> Cargo container <span class="p p1">P1</span></h3>
+      <p>Spawns where a ship died, holding what it carried, and disperses after a timeout.
+        Currently a 6&nbsp;m yellow cube. Should be a 4&nbsp;m armoured pod with a strobing
+        locator beacon, scorched on one face. It must be findable: the beacon is the whole point,
+        because these appear mid-fight and expire.</p>
+
+      <h3>Distance markers <span class="p p2">P2</span></h3>
+      <p>Eight small spheres every 500&nbsp;m straight ahead of the spawn point, so a new player
+        can read their speed off the world instead of trusting the HUD. Replace with something
+        intentional: a line of small unlit navigation buoys, one blinking light each, receding
+        into the dark.</p>
+    </section>
+
+    <!-- 07 -->
+    <section id="weapons">
+      <h2><span class="num">07</span>Weapons and projectiles</h2>
+      <p class="lede">Every weapon here is a projectile. There is no hitscan, and leading a target
+        is a skill.</p>
+      <p>The projectile is a real object the player watches travel, so how it looks matters more
+        than usual. Each weapon needs a muzzle model at its hardpoint, a projectile look, and
+        audio (§11).</p>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>id</th><th>Name</th><th>Damage</th><th>Speed</th><th class="wrap">Brief · P0</th></tr></thead>
+          <tbody>
+            <tr><td><span class="id">pulse_1</span></td><td>Pulse Laser Mk I</td><td>Energy</td><td class="num">620 m/s</td><td class="wrap">Short cyan-white bolt, ~4 m long, soft glow, quick fade</td></tr>
+            <tr><td><span class="id">pulse_2</span></td><td>Pulse Laser Mk II</td><td>Energy</td><td class="num">680 m/s</td><td class="wrap">As Mk I but longer and hotter — visibly the better gun</td></tr>
+            <tr><td><span class="id">cannon_1</span></td><td>Tungsten Cannon</td><td>Kinetic</td><td class="num">420 m/s</td><td class="wrap">A slug: small, bright, hard-edged, smoke trail. Slow enough to lead badly</td></tr>
+            <tr><td><span class="id">turret_1</span></td><td>Defence Turret</td><td>Kinetic</td><td class="num">500 m/s</td><td class="wrap">Short amber bursts, unmistakably defensive</td></tr>
+            <tr><td><span class="id">disruptor_1</span></td><td>Cruise Disruptor</td><td>EMP</td><td class="num">380 m/s</td><td class="wrap">A slow violet pulse that crackles. Non-lethal-looking, because it is not about damage — it stops a freighter running</td></tr>
+            <tr><td><span class="id">miner_1</span></td><td>Mining Laser Mk I</td><td>Energy</td><td class="num">900 m/s</td><td class="wrap">A <em>continuous</em> orange beam with heat shimmer, not a bolt. The only weapon that reads as a tool</td></tr>
+            <tr><td><span class="id">missile_1</span></td><td>Hammer Missile</td><td>Explosive</td><td class="num">260 m/s</td><td class="wrap">A visible physical object with a motor: exhaust plume, smoke trail, slow enough to watch arrive. It flies straight — there is no guidance in this game — so its threat is what it does on impact, not on the way</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>Impact effects <span class="p p1">P1</span></h4>
+      <ul>
+        <li><strong>Energy</strong> — a bright flash and a brief circular scorch.</li>
+        <li><strong>Kinetic</strong> — sparks and a puff of debris; visible ablation.</li>
+        <li><strong>Explosive</strong> — a small fireball with a shockwave ring.</li>
+        <li><strong>EMP</strong> — a blue-white electrical crawl across the target hull.</li>
+      </ul>
+      <p><strong>Shield impact</strong> must be distinct from a hull hit: shields absorb before
+        hull, and a player needs to know which is being eaten. A hexagonal ripple spreading from
+        the impact point across a spherical shield surface, brightest at the centre, fading in
+        about 0.4&nbsp;s.</p>
+    </section>
+
+    <!-- 07a -->
+    <section id="equipment">
+      <h2><span class="num">07a</span>Equipment</h2>
+      <p class="lede">Seventeen modules, three of them switched on in flight, bolted into mounts by kind and size. Most are
+        internal — a shield capacitor is a box in a bay — so the need here is icons
+        first, hull attachments second.</p>
+      <p>Every module's effect is a percentage of the hull's own numbers, and the
+        trade-offs are authored in pairs: a capacitor holds more and refills slower, an
+        emitter array does the reverse. An icon set that reads those pairs as
+        <em>opposites</em> is worth more than seventeen unrelated pictures.</p>
+
+      <h3>Icons <span class="p p1">P1</span></h3>
+      <p>64&nbsp;px SVG plus PNG, in the same flat single-weight language as the
+        commodity set.</p>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>id</th><th>Name</th><th>Changes</th><th class="wrap">Brief</th></tr></thead>
+          <tbody>
+            <tr><td><span class="id">shield_cap_1</span></td><td>Deflector Capacitor</td><td>shields +, regen −</td><td class="wrap">A charged cell behind a shield arc</td></tr>
+            <tr><td><span class="id">shield_regen_1</span></td><td>Emitter Array</td><td>regen +, shields −</td><td class="wrap">Radiating emitter fins</td></tr>
+            <tr><td><span class="id">shield_cap_2</span></td><td>Heavy Deflector Capacitor</td><td>shields ++, regen −</td><td class="wrap">The same cell, doubled and braced</td></tr>
+            <tr><td><span class="id">plating_1</span></td><td>Ablative Plating</td><td>hull +, thrust −</td><td class="wrap">A bolted armour slab, one corner scarred</td></tr>
+            <tr><td><span class="id">plating_2</span></td><td>Composite Plating</td><td>hull ++, thrust −</td><td class="wrap">Layered composite in section</td></tr>
+            <tr><td><span class="id">thruster_1</span></td><td>Overtuned Injectors</td><td>thrust +</td><td class="wrap">An injector assembly with heat bloom</td></tr>
+            <tr><td><span class="id">gyro_1</span></td><td>Gyro Stabiliser</td><td>handling +</td><td class="wrap">A gimballed rotor</td></tr>
+            <tr><td><span class="id">burner_tank_1</span></td><td>Auxiliary Burner Tank</td><td>burner ++, thrust −</td><td class="wrap">A strapped-on fuel cylinder</td></tr>
+            <tr><td><span class="id">cap_booster_1</span></td><td>Capacitor Booster</td><td>capacitor +</td><td class="wrap">A stack of charge cells</td></tr>
+            <tr><td><span class="id">cap_recharge_1</span></td><td>Recharge Coupling</td><td>recharge +</td><td class="wrap">A coil coupling with flow arrows</td></tr>
+            <tr><td><span class="id">hold_expander_1</span></td><td>Hold Expander</td><td>cargo +, hull −</td><td class="wrap">A bay with its bulkhead removed</td></tr>
+            <tr><td><span class="id">hold_expander_2</span></td><td>Structural Hold Expander</td><td>cargo ++, hull −, handling −</td><td class="wrap">The same, with the frame cut away</td></tr>
+            <tr><td><span class="id">ore_processor_1</span></td><td>Inline Ore Processor</td><td>mining +, capacitor −</td><td class="wrap">A crusher inline with a feed pipe</td></tr>
+            <tr><td><span class="id">trade_computer_1</span></td><td>Market Uplink</td><td>trade +</td><td class="wrap">A dish over a ledger grid</td></tr>
+            <tr><td><span class="id">shield_booster_1</span></td><td>Shield Booster <em>(active)</em></td><td>shield +8%/s while on</td><td class="wrap">The shield arc with a pump arrow feeding it</td></tr>
+            <tr><td><span class="id">hull_repairer_1</span></td><td>Hull Repair Unit <em>(active)</em></td><td>hull +2.5%/s while on</td><td class="wrap">A patch over a crack, with a nanite dot pattern</td></tr>
+            <tr><td><span class="id">overcharger_1</span></td><td>Weapon Overcharger <em>(active)</em></td><td>damage +30%, recharge −20% while on</td><td class="wrap">A bolt with a lightning flare at the muzzle</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>The three active modules also want <strong>four states</strong> on the HUD (off,
+        on, hot, burnt out). One icon plus a tinted frame is enough.</p>
+
+      <h3>Hull attachments <span class="p p2">P2</span></h3>
+      <p>Five of the fourteen are plausibly visible from outside, and a ship that
+        <em>looks</em> fitted is most of what makes fitting satisfying: the two plating
+        modules as bolted plates sitting proud of the flanks in the hull's livery, the
+        burner tank as an external cylinder near the engines, and the hold expanders as
+        visibly larger cargo bays or an extra clamped container. Each is a small
+        separate mesh attaching at the rig or thruster offsets in §05. The rest stay
+        internal and need no geometry.</p>
+
+      <h3>Mount markers <span class="p p2">P2</span></h3>
+      <p>Empty mounts should be visible at close range: a capped socket, a blanking
+        plate, an unarmed pylon. It is what tells a pilot looking at their own ship
+        that there is somewhere left to put something.</p>
+    </section>
+
+    <!-- 08 -->
+    <section id="vfx">
+      <h2><span class="num">08</span>Visual effects</h2>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>Effect</th><th>Pri</th><th class="wrap">Brief</th></tr></thead>
+          <tbody>
+            <tr><td>Engine glow</td><td><span class="p p0">P0</span></td><td class="wrap">Emissive cone at each thruster, <code>#66B2FF</code>, scaling with throttle from a dim idle to a hard bloom. Attaches to the named thruster nodes</td></tr>
+            <tr><td>Afterburner</td><td><span class="p p0">P0</span></td><td class="wrap">Plume doubles and shifts white-hot, adding a heat-shimmer trail. It runs on a fuel budget, so it is intermittent — it has to look right flickering on and off</td></tr>
+            <tr><td>Engine kill</td><td><span class="p p1">P1</span></td><td class="wrap">All plumes cut to nothing while the ship keeps its velocity. This is the Freelancer move, and the visual is the <em>absence</em> of thrust at speed</td></tr>
+            <tr><td>Cruise charge</td><td><span class="p p0">P0</span></td><td class="wrap">A five-second spool-up: rings of light converging on the hull, building to a flash. Must be readable by <em>other</em> players — a ship about to escape is a ship to shoot now</td></tr>
+            <tr><td>Cruise trail</td><td><span class="p p0">P0</span></td><td class="wrap">At 320 m/s: a long bright streak with compressed-light distortion at the nose</td></tr>
+            <tr><td>Cruise disrupted</td><td><span class="p p1">P1</span></td><td class="wrap">The spool-up shatters — rings break apart, a violet EMP crawl, plumes drop back. This is the moment piracy works and it must be unmistakable</td></tr>
+            <tr><td>Ship explosion</td><td><span class="p p0">P0</span></td><td class="wrap">Two stages: an internal flash through the hull seams, then a full break-up with tumbling debris. About 1.5 s</td></tr>
+            <tr><td>Mining beam</td><td><span class="p p1">P1</span></td><td class="wrap">A continuous beam from each mining hardpoint to a point on an asteroid, with ore chips and dust spalling off and drifting toward the ship</td></tr>
+            <tr><td>Jump flash</td><td><span class="p p1">P1</span></td><td class="wrap">The gate ring floods with light, the ship stretches toward it and is gone. The jump is instantaneous in the simulation, so the effect is all there is</td></tr>
+            <tr><td>Docking approach</td><td><span class="p p2">P2</span></td><td class="wrap">Bay-mouth strobes, and a guide-light sequence once a pilot is inside docking range</td></tr>
+            <tr><td>Loot beacon</td><td><span class="p p1">P1</span></td><td class="wrap">A slow strobe on the container, visible at 2 km</td></tr>
+            <tr><td>Damage smoke</td><td><span class="p p2">P2</span></td><td class="wrap">Trailing smoke and intermittent sparks below 40% hull</td></tr>
+            <tr><td>Field dust</td><td><span class="p p2">P2</span></td><td class="wrap">Drifting particulate inside asteroid fields, parallaxing against the dark</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 09 -->
+    <section id="ui">
+      <h2><span class="num">09</span>Interface</h2>
+      <p class="lede">The HUD is currently monospaced text in five panels. It works and it is
+        readable; what it lacks is anything drawn.</p>
+
+      <h3>Reticle and markers <span class="p p0">P0</span></h3>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>id</th><th class="wrap">Brief</th></tr></thead>
+          <tbody>
+            <tr><td><span class="id">reticle</span></td><td class="wrap">The aiming crosshair the ship turns toward. A light open circle with four ticks; must not obscure what is behind it. <code>#8CF2B2</code></td></tr>
+            <tr><td><span class="id">lead_marker</span></td><td class="wrap">Where to aim so a bolt and the target arrive together. A diamond in <code>#FF735A</code>, deliberately unlike the reticle — confusing the two is confusing "where I am pointing" with "where I should point"</td></tr>
+            <tr><td><span class="id">target_bracket</span></td><td class="wrap">Corner brackets around a locked target, scaling with its screen size</td></tr>
+            <tr><td><span class="id">contact_pip</span></td><td class="wrap">Off-screen contact indicator: a chevron at the screen edge pointing toward it</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Panels, bars and the navmap <span class="p p1">P1</span></h3>
+      <p>Five panels — net diagnostics top left, flight bottom left, station centre while docked,
+        contacts right, chat bottom. They need a frame that reads as a cockpit display without
+        eating space: a thin bevelled border, a slightly darkened translucent backing, a corner
+        notch. Two variants, HUD green <code>#9EDBB8</code> and station amber
+        <code>#EBD69E</code>.</p>
+      <p>Shield, hull, weapon energy, afterburner fuel, throttle, cruise charge and training
+        progress are all fraction bars, currently drawn as <code>[====&nbsp;&nbsp;&nbsp;&nbsp;]</code>.
+        One segmented bar graphic with a filled and an empty state, tintable per use.</p>
+      <p>The navmap is ASCII today. It needs a system node (a circle with a name label, plus a
+        "you are here" variant), a jump link line, a route highlight, and a system detail card
+        listing bases. Two systems now; designed for dozens.</p>
+    </section>
+
+    <!-- 10 -->
+    <section id="icons">
+      <h2><span class="num">10</span>Icons</h2>
+      <p class="lede">All flat, single-weight, legible at 24&nbsp;px. Supply SVG plus 64&nbsp;px
+        PNG.</p>
+
+      <h3>Commodities <span class="p p1">P1</span></h3>
+      <p>The category should be readable from the shape language: <strong>Raw</strong> rough and
+        irregular, <strong>Refined</strong> geometric, <strong>Manufactured</strong> mechanical,
+        <strong>Consumable</strong> rounded.</p>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>id</th><th>Name</th><th>Category</th><th class="wrap">Brief</th></tr></thead>
+          <tbody>
+            <tr><td><span class="id">water</span></td><td>Water</td><td>Raw</td><td class="wrap">A sealed drum with a droplet</td></tr>
+            <tr><td><span class="id">oxygen</span></td><td>Oxygen</td><td>Consumable</td><td class="wrap">A pressure cylinder with a valve</td></tr>
+            <tr><td><span class="id">food</span></td><td>Foodstuffs</td><td>Consumable</td><td class="wrap">A stacked ration crate</td></tr>
+            <tr><td><span class="id">iron_ore</span></td><td>Iron Ore</td><td>Raw</td><td class="wrap">Rough ore chunks with visible veining</td></tr>
+            <tr><td><span class="id">alloys</span></td><td>Structural Alloys</td><td>Refined</td><td class="wrap">Stacked ingots, or a girder section</td></tr>
+            <tr><td><span class="id">consumer_goods</span></td><td>Consumer Goods</td><td>Manufactured</td><td class="wrap">A sealed retail crate with a barcode</td></tr>
+            <tr><td><span class="id">machinery</span></td><td>Heavy Machinery</td><td>Manufactured</td><td class="wrap">A gear and piston assembly</td></tr>
+            <tr><td><span class="id">luxury_goods</span></td><td>Luxury Goods</td><td>Manufactured</td><td class="wrap">An ornate sealed case</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Contacts <span class="p p0">P0</span></h3>
+      <p>Four, and these carry real information in a fight: <span class="id">Player</span> a
+        neutral chevron, <span class="id">Pirate</span> a red angular hostile mark,
+        <span class="id">Police</span> a blue shield, <span class="id">Trader</span> an amber
+        cargo chevron. They must be distinguishable <strong>by shape</strong>, not only by
+        colour.</p>
+
+      <h3>Services, skills and damage types <span class="p p1">P1</span> <span class="p p2">P2</span></h3>
+      <p><strong>Eight station services</strong> (P1): bar, trader, ship dealer, equipment dealer,
+        repair, refinery, manufacturing, market orders — a glass, a scale, a hull silhouette, a
+        wrench-and-module, a welding spark, a distillation stack, a press, a candlestick
+        chart.</p>
+      <p><strong>Ten skill effects</strong> (P2) for the training screen's effect column: cargo,
+        shields, hull, damage, thrust, handling, mining, refining, production, trade.</p>
+      <p><strong>Four damage types</strong> (P2): Energy a bolt, Kinetic an impact star, Explosive
+        a burst, EMP a waveform.</p>
+    </section>
+
+    <!-- 11 -->
+    <section id="audio">
+      <h2><span class="num">11</span>Audio</h2>
+      <p class="lede">Positional sources mono, music and ambience stereo. Loop cleanly where
+        marked.</p>
+
+      <h3>Ship <span class="p p0">P0</span></h3>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>id</th><th>Loop</th><th class="wrap">Brief</th></tr></thead>
+          <tbody>
+            <tr><td><span class="id">engine_light</span></td><td>yes</td><td class="wrap">Kestrel drive: a high clean hum, pitch and volume following throttle</td></tr>
+            <tr><td><span class="id">engine_heavy</span></td><td>yes</td><td class="wrap">Bulwark: lower, with a mechanical undertone</td></tr>
+            <tr><td><span class="id">engine_freight</span></td><td>yes</td><td class="wrap">Hauler: a deep industrial rumble, slow to spool</td></tr>
+            <tr><td><span class="id">afterburner</span></td><td>yes</td><td class="wrap">A hard roar over the engine, with an ignition transient</td></tr>
+            <tr><td><span class="id">engine_kill</span></td><td>no</td><td class="wrap">The sound of everything stopping: a descending whine into near-silence, leaving hull creak</td></tr>
+            <tr><td><span class="id">cruise_charge</span></td><td>no</td><td class="wrap">Five seconds of rising harmonic tension resolving into a bass thump</td></tr>
+            <tr><td><span class="id">cruise_loop</span></td><td>yes</td><td class="wrap">A sustained high-speed drone</td></tr>
+            <tr><td><span class="id">cruise_break</span></td><td>no</td><td class="wrap">The disruptor hit: the drone collapses with an electrical crack</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Weapons, impacts and interface <span class="p p0">P0</span> <span class="p p1">P1</span></h3>
+      <p>One fire sound each for the five projectile weapons plus a <strong>looping</strong>
+        mining beam. Lasers short and electric; the cannon a heavy percussive thump; the disruptor
+        a wet electrical warble that sounds obviously unlike a gun.</p>
+      <p>Impacts: <span class="id">hit_shield</span> a resonant absorbed thud,
+        <span class="id">hit_hull</span> metal-on-metal penetration, plus per-damage-type variants,
+        <span class="id">explosion_small</span>, <span class="id">explosion_large</span> and
+        <span class="id">debris</span>.</p>
+      <p>World and interface (P1): <span class="id">dock_granted</span>,
+        <span class="id">dock_clamp</span>, <span class="id">undock_launch</span>,
+        <span class="id">jump_engage</span>, <span class="id">jump_arrive</span>,
+        <span class="id">loot_scoop</span>, <span class="id">mining_impact</span>,
+        <span class="id">trade_confirm</span>, <span class="id">trade_refused</span>,
+        <span class="id">skill_complete</span> — a small satisfying chime, because this fires when
+        something trained while you were away — and the four UI clicks.</p>
+
+      <h3>Ambience and music <span class="p p2">P2</span></h3>
+      <p>Five ambiences: high-security space (calm, distant traffic chatter, a low tonal bed),
+        low-security (sparser, colder, irregular unexplained noises), asteroid field (pebble
+        impacts on the hull, dust hiss), station interior (ventilation, machinery, muffled
+        voices), and the bar (conversation, glasses, a bad jukebox).</p>
+      <p>Music is orchestral-electronic in Freelancer's register: melodic, unhurried, never busy.
+        Loop cleanly and leave silence — this is a game people play for hours.</p>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>id</th><th>Length</th><th class="wrap">Brief</th></tr></thead>
+          <tbody>
+            <tr><td><span class="id">mus_exploration</span></td><td class="num">3–4 min</td><td class="wrap">The default flight theme. Spacious, wistful, mostly quiet</td></tr>
+            <tr><td><span class="id">mus_combat</span></td><td class="num">2 min</td><td class="wrap">Percussive and driving, layered so it can enter mid-phrase</td></tr>
+            <tr><td><span class="id">mus_station</span></td><td class="num">3 min</td><td class="wrap">Warm, safe, slightly bureaucratic</td></tr>
+            <tr><td><span class="id">mus_bar</span></td><td class="num">2 min</td><td class="wrap">Diegetic: source music, worse speakers, a different genre</td></tr>
+            <tr><td><span class="id">mus_lowsec</span></td><td class="num">3 min</td><td class="wrap">Kessler Gap. Sparse and unresolved — it should not feel safe</td></tr>
+            <tr><td><span class="id">mus_title</span></td><td class="num">2 min</td><td class="wrap">The theme, and the one that has to be good</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 12 -->
+    <section id="type">
+      <h2><span class="num">12</span>Typography</h2>
+      <p>The HUD is monospaced by design: the columns line up and the panels are tables. Bevy's
+        bundled font has <strong>no em dash and no box-drawing characters</strong> — every
+        on-screen string in this codebase is plain ASCII, and there are tests asserting it.</p>
+      <p>Needed: one <strong>monospaced</strong> family with a technical, slightly condensed feel,
+        in Regular and Bold, covering Latin-1 plus arrows and block-drawing
+        (<code>─ │ ┌ ┐ └ ┘ █ ▓ ▒ ░ ← → ↑ ↓</code>). Supplying those would let the panel frames be
+        drawn in text and the ASCII-only tests be relaxed. A second, proportional family for
+        headings and station signage would help, but is <span class="p p2">P2</span>.</p>
+    </section>
+
+    <!-- 13 -->
+    <section id="manifest">
+      <h2><span class="num">13</span>Manifest</h2>
+      <p class="lede">A first pass, in build order. Ticks are kept in this browser.</p>
+      <div class="manifest" id="manifest">
+        <h4><span class="p p0">P0</span> The game is incomplete without these <span class="count" data-count="p0"></span></h4>
+        <ul data-group="p0">
+          <li><label><input type="checkbox"><span>ships/kestrel.glb + LOD1 + 4 liveries</span></label></li>
+          <li><label><input type="checkbox"><span>ships/bulwark.glb + LOD1 + 4 liveries</span></label></li>
+          <li><label><input type="checkbox"><span>ships/drone_hauler.glb + LOD1 + 4 liveries</span></label></li>
+          <li><label><input type="checkbox"><span>stations/halden.glb</span></label></li>
+          <li><label><input type="checkbox"><span>stations/kessler_yard.glb</span></label></li>
+          <li><label><input type="checkbox"><span>planets/harrow_albedo.png 8192×4096 + normal + clouds</span></label></li>
+          <li><label><input type="checkbox"><span>props/jump_gate.glb</span></label></li>
+          <li><label><input type="checkbox"><span>vfx/engine_glow, afterburner, cruise_charge, cruise_trail</span></label></li>
+          <li><label><input type="checkbox"><span>vfx/explosion_ship</span></label></li>
+          <li><label><input type="checkbox"><span>projectiles/ × 6</span></label></li>
+          <li><label><input type="checkbox"><span>ui/reticle, lead_marker, target_bracket, contact_pip</span></label></li>
+          <li><label><input type="checkbox"><span>icons/contact/ × 4</span></label></li>
+          <li><label><input type="checkbox"><span>audio/ship/ engines × 3, afterburner, cruise × 3</span></label></li>
+          <li><label><input type="checkbox"><span>audio/weapon/ × 6 and audio/impact/ × 8</span></label></li>
+        </ul>
+
+        <h4><span class="p p1">P1</span> It reads as unfinished without these <span class="count" data-count="p1"></span></h4>
+        <ul data-group="p1">
+          <li><label><input type="checkbox"><span>props/asteroid_01..08.glb — two ore-veined, one mined</span></label></li>
+          <li><label><input type="checkbox"><span>stations/drift_relay.glb, stations/cinder_hold.glb</span></label></li>
+          <li><label><input type="checkbox"><span>structures/warden_relay.glb, structures/clan_beacon.glb</span></label></li>
+          <li><label><input type="checkbox"><span>props/lane_ring_end.glb, props/lane_ring_line.glb</span></label></li>
+          <li><label><input type="checkbox"><span>vfx/shield_boost_shimmer, vfx/structure_cover</span></label></li>
+          <li><label><input type="checkbox"><span>props/cargo_container.glb</span></label></li>
+          <li><label><input type="checkbox"><span>vfx/ impacts × 4, shield ripple, mining beam</span></label></li>
+          <li><label><input type="checkbox"><span>vfx/ jump flash, loot beacon, field dust</span></label></li>
+          <li><label><input type="checkbox"><span>ui/panel_frame_hud, panel_frame_station, bar_segment</span></label></li>
+          <li><label><input type="checkbox"><span>ui/navmap_node, navmap_link</span></label></li>
+          <li><label><input type="checkbox"><span>icons/commodity/ × 10 (including relay_kit, beacon_kit)</span></label></li>
+          <li><label><input type="checkbox"><span>icons/service/ × 8</span></label></li>
+          <li><label><input type="checkbox"><span>icons/module/ × 17 (three of them active)</span></label></li>
+          <li><label><input type="checkbox"><span>projectiles/missile_1 + exhaust plume and smoke trail</span></label></li>
+          <li><label><input type="checkbox"><span>audio/world/ × 14</span></label></li>
+          <li><label><input type="checkbox"><span>fonts/ monospaced Regular + Bold with box-drawing</span></label></li>
+        </ul>
+
+        <h4><span class="p p2">P2</span> Polish <span class="count" data-count="p2"></span></h4>
+        <ul data-group="p2">
+          <li><label><input type="checkbox"><span>Faction logos × 4, liveries as texture variants</span></label></li>
+          <li><label><input type="checkbox"><span>props/nav_buoy.glb</span></label></li>
+          <li><label><input type="checkbox"><span>vfx/damage_smoke, docking_strobe</span></label></li>
+          <li><label><input type="checkbox"><span>props/module_plating, module_burner_tank, module_hold_bay</span></label></li>
+          <li><label><input type="checkbox"><span>props/mount_cap.glb — the blanking plate on an empty mount</span></label></li>
+          <li><label><input type="checkbox"><span>icons/skill/ × 10, icons/damage/ × 4</span></label></li>
+          <li><label><input type="checkbox"><span>audio/ambience/ × 5</span></label></li>
+          <li><label><input type="checkbox"><span>music/ × 6</span></label></li>
+          <li><label><input type="checkbox"><span>skybox/ × 3 systems (harrow_reach, kessler_gap, vell_drift)</span></label></li>
+          <li><label><input type="checkbox"><span>Ship damage states</span></label></li>
+          <li><label><input type="checkbox"><span>A proportional display family</span></label></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 14 -->
+    <section id="excluded">
+      <h2><span class="num">14</span>Deliberately not here</h2>
+      <p class="lede">Nothing should be generated for a system that cannot show it yet.</p>
+      <ul>
+        <li><strong>Mine-layer hardware.</strong> <code>HardpointKind::Mine</code>
+          exists in the model and no hull declares one — the content loader now refuses
+          a mount nothing can fill, so this stays empty until there is a module.</li>
+        <li><strong>Capital ships, gunboats, cruisers, transports.</strong>
+          <code>HullClass</code> lists them; no content defines one.</li>
+        <li><strong>Player structures.</strong> Deferred to sovereignty.</li>
+        <li><strong>Jump holes.</strong> Hidden gates exist in the model and are filtered out of
+          what the client is told; nothing discovers them yet.</li>
+        <li><strong>Character portraits.</strong> Three named characters: Ilse Varga (Traders
+          Guild dispatcher, Halden), Captain Imre Hask (Compact Wardens) and Sabe Ronn (keeper of
+          the Cinder Clans' stores, Cinder Hold). There is nowhere to show a portrait yet; the bar
+          is text.</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer>
+    <span>Ids and dimensions taken from assets/data/*.ron and shared/src/sim.rs</span>
+    <span>−Z forward · +Y up · metres</span>
+  </footer>
+</div>
+
+<script>
+  (function () {
+    var KEY = "asset-brief-manifest-v1";
+    var boxes = Array.prototype.slice.call(
+      document.querySelectorAll("#manifest input[type=checkbox]")
+    );
+    var saved = {};
+    try { saved = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) { saved = {}; }
+
+    boxes.forEach(function (box, i) {
+      box.checked = saved[i] === true;
+    });
+
+    function counts() {
+      ["p0", "p1", "p2"].forEach(function (group) {
+        var list = document.querySelector('[data-group="' + group + '"]');
+        var label = document.querySelector('[data-count="' + group + '"]');
+        if (!list || !label) return;
+        var all = list.querySelectorAll("input[type=checkbox]");
+        var done = list.querySelectorAll("input[type=checkbox]:checked");
+        label.textContent = done.length + " / " + all.length;
+      });
+    }
+
+    boxes.forEach(function (box, i) {
+      box.addEventListener("change", function () {
+        saved[i] = box.checked;
+        try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (e) { /* private mode */ }
+        counts();
+      });
+    });
+
+    counts();
+  })();
+</script>
+
+</body>
+</html>
