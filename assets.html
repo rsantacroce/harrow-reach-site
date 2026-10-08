@@ -320,6 +320,21 @@
     margin-bottom: 6px;
   }
 
+  /* ---------- prompts ---------- */
+
+  .prompt {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    background: var(--slate-dim);
+    border-left: 3px solid var(--rule);
+    padding: 12px 16px;
+    margin: 0 0 18px;
+    max-width: var(--measure);
+    border-radius: 0 3px 3px 0;
+  }
+
   /* ---------- swatches ---------- */
 
   .swatches {
@@ -555,6 +570,13 @@
         one: <span class="id">carrack</span> is 30, <span class="id">drone_hauler</span> 2.2, the
         fighters 1. Author to the table above and drop it. A model whose true size is a data-file
         multiplier is a model nobody can inspect.</p>
+      <p><strong>How the first models are wired in (M35).</strong> The generated set does not meet
+        this contract yet: each file is normalised to about 1&nbsp;m and a hull's nose points along
+        &minus;X. The client turns hulls &minus;90° about Y, measures each file's furthest vertex and
+        scales it to the placeholder it replaces, so ships still draw at placeholder size. Files
+        are found by id (<code>ships/&lt;class&gt;</code>, <code>stations/&lt;base&gt;</code>,
+        <code>structures/&lt;kind&gt;</code>, <code>props/&hellip;</code>); a missing file leaves
+        the placeholder.</p>
 
       <h3>Polygon budgets</h3>
       <p>Interest management replicates up to 24 ships at once, so a busy station means two dozen
@@ -954,21 +976,103 @@
         like entering something rather than crossing a line.</p>
 
       <h3>System backdrops <span class="p p2">P2</span></h3>
-      <p>Today every system shares one generic starfield, so arriving somewhere new looks like
-        arriving nowhere. One skybox per system (cubemap, 2048&nbsp;px a face,
-        <code>skybox/&lt;system id&gt;_{px,nx,py,ny,pz,nz}.png</code>), dim enough that the HUD and
-        contacts stay readable over it. The three should be told apart at a glance from the
-        arrival point: that glance is how a pilot knows a jump worked.</p>
+      <p>Today every system shares one generic starfield (900 unlit dots 40&nbsp;km out), so
+        arriving somewhere new looks like arriving nowhere. Each system gets its own sky. The look
+        to aim for is <strong>deep-space astrophotography</strong>: Hubble and Webb nebulae, the
+        Milky Way as long-exposure photographs show it. Not painted sci-fi space with planets and
+        lens flares.</p>
+      <p><strong>The three must be told apart at a glance from the arrival point.</strong> That
+        glance is how a pilot knows a jump worked: warm gold for Harrow Reach, dark brown dust for
+        Kessler Gap, cold blue-violet for Vell Drift.</p>
+
+      <h4>Technical contract</h4>
       <div class="scroll">
         <table>
-          <thead><tr><th>id</th><th>Name</th><th>Security</th><th class="wrap">Mood</th></tr></thead>
           <tbody>
-            <tr><td><span class="id">harrow_reach</span></td><td>Harrow Reach</td><td>High</td><td class="wrap">Warm and lived-in: a yellow-white sun low on one side, Harrow's green glow, dense traffic-lit lanes. Safe.</td></tr>
-            <tr><td><span class="id">kessler_gap</span></td><td>Kessler Gap</td><td>Low</td><td class="wrap">Dusty and dim: a brown-grey dust band across the sky, a distant red dwarf, wreck-glitter in the dust. Exposed.</td></tr>
-            <tr><td><span class="id">vell_drift</span></td><td>Vell Drift</td><td>Null</td><td class="wrap">Cold and deep: blue-violet nebula filaments, no near star, one ember-red smudge where Cinder Hold's reactors light the dust. Nobody's.</td></tr>
+            <tr><td>Deliverable</td><td class="wrap">One <strong>equirectangular panorama</strong> per system: <code>skybox/&lt;system id&gt;.png</code></td></tr>
+            <tr><td>Size</td><td class="wrap"><strong>8192 &times; 4096</strong> (2:1). 4096 &times; 2048 is the floor; it softens visibly</td></tr>
+            <tr><td>Format</td><td class="wrap">PNG, sRGB, 8 or 16 bit. <strong>Dithered</strong>: dark gradients band badly in 8 bit</td></tr>
+            <tr><td>Wrap</td><td class="wrap">The left and right edges must meet with no seam</td></tr>
+            <tr><td>Poles</td><td class="wrap">Top and bottom 15% (the zenith and nadir) are pinched by the projection: keep them to plain star field</td></tr>
+            <tr><td>Conversion</td><td class="wrap">The wiring step converts the panorama to the cubemap Bevy draws (2048&nbsp;px a face). Do not deliver cube faces</td></tr>
           </tbody>
         </table>
       </div>
+      <p><strong>Orientation.</strong> The image is the sky seen from inside. The <strong>centre
+        of the image is &minus;Z</strong>, the direction a pilot faces at the spawn point; a
+        quarter to the right is +X, the left and right edges are +Z (behind), the top row is
+        +Y.</p>
+      <p><strong>Leave the sun out.</strong> The engine draws the system's star so it lines up with
+        the light that shades the ships, at about <strong>(u&nbsp;0.81, v&nbsp;0.32)</strong> of
+        the image: right of centre, a third of the way down. Keep that patch free of bright
+        features, or the sky shows two suns.</p>
+      <p><strong>Brightness.</strong> The HUD is green text drawn straight over the sky, and
+        contacts are small grey hulls. Most of the image should be near-black (sRGB below about
+        40/255). Nebulae peak around 60&ndash;70%. Nothing white bigger than a star. If a
+        screenshot of the HUD over the brightest part is hard to read, it is too bright.</p>
+
+      <h4>How hard this is</h4>
+      <p>Making a beautiful nebula image is easy for any current image model. The hard part is a
+        <strong>seamless, full-sphere</strong> image at 8k. Single-image models (GPT Image,
+        Midjourney, Flux, Imagen) do not wrap left to right, distort at the poles, and top out
+        around 2k. There are three ways to get there, best first:</p>
+      <ol>
+        <li><strong>Real star field plus a generated feature (recommended).</strong> Start from
+          NASA's <em>Deep Star Maps 2020</em> (Scientific Visualization Studio): a real all-sky star
+          map from Gaia and Hipparcos, already equirectangular, up to 64k (as HDR <code>.exr</code>), free to use with the credit line &ldquo;NASA/Goddard Space Flight Center Scientific Visualization Studio; Gaia DR2: ESA/Gaia/DPAC&rdquo;. Turn it
+          differently for each system so the skies differ, dim it, then composite <strong>one
+          generated nebula or dust feature per system</strong> into the horizon band, painted on
+          black (prompts below). The stars are real, the projection is already right, and only the
+          feature has to be generated.</li>
+        <li><strong>A dedicated 360 generator</strong> (Blockade Labs Skybox AI, or a
+          panorama-capable model). It handles the projection and the wrap, but check the poles and
+          upscale to 8k.</li>
+        <li><strong>A single-image model with fix-up.</strong> Generate at 2:1, upscale (Real-ESRGAN
+          or similar), then fix the wrap: shift the image half a width, inpaint the seam now in the
+          middle, and shift it back. Paint the poles over with star field.</li>
+      </ol>
+      <p><strong>Real Hubble and Webb images</strong> are the right style reference. Using one
+        directly is possible, with care. NASA images are generally public domain. ESA/Hubble and
+        ESA/Webb images are CC&nbsp;BY&nbsp;4.0 and need a credit line. Check each image's credit.
+        They are flat frames, not skies, so they can only be composited in as a feature. Famous
+        objects (the Pillars of Creation, the Carina Nebula) are recognisable and break the
+        fiction. A generated feature in the same palette is usually better.</p>
+
+      <h4>The systems</h4>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>id</th><th>Name</th><th>Security</th><th class="wrap">Sky</th></tr></thead>
+          <tbody>
+            <tr><td><span class="id">harrow_reach</span></td><td>Harrow Reach</td><td>High</td><td class="wrap">Warm and rich: a bright Milky Way band crossing at a tilt, golden dust lanes, a soft rose-and-gold emission nebula low on the left. Busy with stars. Safe.</td></tr>
+            <tr><td><span class="id">kessler_gap</span></td><td>Kessler Gap</td><td>Low</td><td class="wrap">Dark and dusty: a broad brown-grey dark nebula blotting out a third of the sky, thin starlight around its edges, one small distant red dwarf with a faint glow. Sparse. Exposed.</td></tr>
+            <tr><td><span class="id">vell_drift</span></td><td>Vell Drift</td><td>Null</td><td class="wrap">Cold and deep: the filaments of an old supernova remnant across the sky, teal and violet with thin red edges, very few stars. One ember-red smudge low on the horizon where Cinder Hold's reactors light the dust. Nobody's.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>Prompts</h4>
+      <p>Each prompt is the system's sky plus the shared style. Use the panorama form with a 360
+        generator; use the feature form for route 1 or 3, where the feature is composited onto a
+        star field.</p>
+      <p><strong>Shared style</strong> (append to every prompt)</p>
+      <div class="prompt">Deep-space astrophotography in the style of Hubble Space Telescope and James Webb Space Telescope images: real-looking nebula structure with fine filaments and dust lanes, natural star colours, soft diffraction glow only on the brightest stars. Mostly black sky, low overall brightness, high dynamic range, subtle detail in the dark areas, no banding. Photographic, not painted. No planets, no spaceships, no lens flares, no text, no watermark, no frame.</div>
+      <p><strong>Panorama form</strong>, prefix</p>
+      <div class="prompt">Seamless equirectangular 360-degree panorama of a night sky in deep space, 2:1 aspect ratio, left and right edges continuous, plain star field near the top and bottom edges.</div>
+      <p><strong>Feature form</strong>, prefix</p>
+      <div class="prompt">A single isolated deep-space feature on a pure black background, no stars, soft edges fading to black on every side, for compositing onto a star field.</div>
+      <p><span class="id">harrow_reach</span></p>
+      <div class="prompt">A rich, warm sky. A bright Milky Way band crosses the frame at a gentle tilt, dense with stars, with golden-brown dust lanes running through it. Low on the left, a soft emission nebula in rose, gold and warm white, like a small Lagoon Nebula, glowing gently. Warm, safe, inhabited-feeling, the colours of late-evening light.</div>
+      <p><span class="id">kessler_gap</span></p>
+      <div class="prompt">A dark, dusty, desolate sky. A vast brown-grey dark nebula, opaque cold dust like Barnard's dark nebulae or the Coalsack, blots out a third of the sky, its edges lit faintly from behind. Thin, sparse starlight around it. Far off, one small dim red dwarf star with a faint red halo. Dim, empty, exposed, the colours of soot and rust.</div>
+      <p><span class="id">vell_drift</span></p>
+      <div class="prompt">A cold, deep, empty sky. The long thin filaments of an ancient supernova remnant, like the Veil Nebula, sweep across it in teal and blue-violet with fine red hydrogen edges, delicate and torn. Very few stars. Low on the horizon, a single faint ember-orange glow lighting a patch of dust. Cold, lonely, lawless, the colours of ice and a dying fire.</div>
+
+      <h4>Acceptance</h4>
+      <ul>
+        <li>Load it in a panorama viewer and turn a full circle: no seam, no pinch.</li>
+        <li>Put the game's HUD screenshot over the brightest part: the text reads.</li>
+        <li>Put the three side by side as small thumbnails: each is recognisable.</li>
+      </ul>
 
       <h3><span class="id">loot</span> Cargo container <span class="p p1">P1</span></h3>
       <p>Spawns where a ship died, holding what it carried, and disperses after a timeout.
@@ -1308,7 +1412,7 @@
           <li><label><input type="checkbox"><span>icons/skill/ × 12, icons/damage/ × 4</span></label></li>
           <li><label><input type="checkbox"><span>audio/ambience/ × 5</span></label></li>
           <li><label><input type="checkbox"><span>music/ × 6</span></label></li>
-          <li><label><input type="checkbox"><span>skybox/ × 3 systems (harrow_reach, kessler_gap, vell_drift)</span></label></li>
+          <li><label><input type="checkbox"><span>skybox/&lt;system id&gt;.png × 3 (harrow_reach, kessler_gap, vell_drift): 8192 × 4096 equirectangular, seamless</span></label></li>
           <li><label><input type="checkbox"><span>Ship damage states</span></label></li>
           <li><label><input type="checkbox"><span>A proportional display family</span></label></li>
         </ul>
